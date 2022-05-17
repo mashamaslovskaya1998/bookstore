@@ -1,5 +1,6 @@
 import styled from "styled-components";
-const StyledBooksList = styled.ul`
+
+export const StyledSearchBooks = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 20px;
@@ -9,4 +10,3 @@ const StyledBooksList = styled.ul`
   padding: 0;
   list-style: none;
 `;
-export { StyledBooksList };

@@ -1,14 +1,28 @@
 import styled from "styled-components";
 
+export const StyledForm = styled.form`
+  position: relative;
+  max-width: 542px;
+  width: 100%;
+`;
+
 export const StyledSearch = styled.input`
-  padding: 15px 20px;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-
-  margin-bottom: 30px;
-
-  &::placeholder {
-    color: #999;
-    font-size: 16px;
-  }
+  max-width: 542px;
+  width: 100%;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  border: 1px solid rgb(231, 231, 231);
+`;
+export const StyledButton = styled.button`
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  max-width: 24px;
+  width: 100%;
+  height: 24px;
+  cursor: pointer;
 `;

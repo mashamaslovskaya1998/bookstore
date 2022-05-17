@@ -1,6 +1,6 @@
 import { StyledBooksList } from "./style";
-import { IBook } from "../../types/Books";
 import BookItem from "../BookItem/BookItem";
+import { IBook } from "../../types/books";
 
 interface IBookListProps {
   books: IBook[];
@@ -8,7 +8,7 @@ interface IBookListProps {
 const BookList = ({ books }: IBookListProps) => {
   return (
     <StyledBooksList>
-      {books.map((book, index) => {
+      {books.map((book) => {
         return <BookItem key={book.isbn13} book={book} />;
       })}
     </StyledBooksList>

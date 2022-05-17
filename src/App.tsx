@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-
-import BookList from "./components/BookList/BookList";
-import AppRouter from "./router/AppRouter";
-import { IBook } from "./types/Books";
+import styled from "styled-components";
+import { AppRouter } from "./router/AppRouter";
+import { IBook } from "./types/books";
 
 const App = () => {
   const [books, setBooks] = useState<IBook[]>([]);
@@ -15,14 +14,19 @@ const App = () => {
       });
   }, []);
   return (
-    <BrowserRouter>
-      <AppRouter />
-      <div>
-        <h1>Books</h1>
-        <BookList books={books} />
-      </div>
-    </BrowserRouter>
+    <StyledApp>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </StyledApp>
   );
 };
 
 export default App;
+
+const StyledApp = styled.div`
+  padding: 0 16px;
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+`;
