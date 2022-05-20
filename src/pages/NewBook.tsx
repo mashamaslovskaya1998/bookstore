@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookList from "../components/BookList/BookList";
+import { Title } from "../components/Title/Title";
 import { bookAPI } from "../services/bookService";
 import { INewBooksApi } from "../types/books";
 
@@ -17,7 +18,7 @@ export const NewBook = () => {
   }, []);
   return (
     <div>
-      <h1>New Releases Books</h1>
+      <Title>New Releases Books</Title>
       <BookList books={newBooks.books}></BookList>
     </div>
   );

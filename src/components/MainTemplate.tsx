@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 
 export const MainTemplate = () => {
@@ -6,6 +7,7 @@ export const MainTemplate = () => {
     <div>
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };

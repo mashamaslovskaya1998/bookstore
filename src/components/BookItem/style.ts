@@ -4,14 +4,28 @@ import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
 
 export const StyledLink = styled(Link)`
-  border-radius: 10px;
-  padding: 1rem;
   text-decoration: none;
 `;
 
+export const StyledImageBlock = styled.div`
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  & {
+    transition: 0.6s;
+  }
+  &:hover {
+    transform: scale(1.1); /* Увеличиваем масштаб */
+  }
+`;
+
 export const StyledImage = styled.img`
-  background-color: #d7e4fd;
   margin-bottom: 21px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  justify-content: center;
 `;
 export const StyledTitle = styled.h3`
   color: ${Colors.PRIMARY};
@@ -35,3 +49,5 @@ export const StyledPrice = styled.h3`
   ${typography.H3}
   color: ${Colors.PRIMARY};
 `;
+
+export const StyledBlock = styled.div``;

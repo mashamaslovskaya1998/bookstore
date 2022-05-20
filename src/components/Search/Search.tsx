@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { SearchPicture } from "../../assets";
 import { StyledButton, StyledForm, StyledSearch } from "./style";
 
 export const Search = () => {
@@ -10,8 +11,10 @@ export const Search = () => {
   };
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
-      <StyledSearch type="text" placeholder="search" {...register("title")} />
-      <StyledButton type="submit"></StyledButton>
+      <StyledSearch type="text" placeholder="Search" {...register("title")} />
+      <StyledButton type="submit">
+        <SearchPicture />
+      </StyledButton>
     </StyledForm>
   );
 };

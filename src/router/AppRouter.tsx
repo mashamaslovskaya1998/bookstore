@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import { MainTemplate } from "../components/MainTemplate";
 import { Search } from "../components/Search/Search";
 import { Bag } from "../pages/Bag";
-import { DetailsBooks } from "../pages/DetailsBooks";
+import { DetailsBooks } from "../components/DetailsBooks/DetailsBook";
 import { FavoritesBook } from "../pages/FavoritesBook";
 import Login from "../pages/Login";
 import { NewBook } from "../pages/NewBook";

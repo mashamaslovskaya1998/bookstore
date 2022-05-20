@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Colors } from "../../ui/colors";
 
 export const StyledForm = styled.form`
   position: relative;
@@ -15,6 +16,8 @@ export const StyledSearch = styled.input`
   font-weight: 400;
   font-size: 16px;
   line-height: 32px;
+  background-color: ${Colors.BG_LIGHT};
+  border: 1px solid ${Colors.BG_GREY};
   border: 1px solid rgb(231, 231, 231);
 `;
 export const StyledButton = styled.button`
@@ -24,5 +27,8 @@ export const StyledButton = styled.button`
   max-width: 24px;
   width: 100%;
   height: 24px;
+  border: none;
+  background-color: transparent;
+
   cursor: pointer;
 `;

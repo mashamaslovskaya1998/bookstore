@@ -1,6 +1,8 @@
 import { IBook } from "../../types/books";
 import {
+  StyledBlock,
   StyledImage,
+  StyledImageBlock,
   StyledLink,
   StyledPrice,
   StyledSubtitle,
@@ -14,12 +16,15 @@ interface IBookItemProps {
 const BookItem = ({ book }: IBookItemProps) => {
   return (
     <StyledLink to={`/books/${book.isbn13}`}>
-      <StyledImage src={book.image} alt={book.title} />
-
-      <StyledTitle>{book.title}</StyledTitle>
-      <StyledText>{book.isbn13}</StyledText>
-      <StyledSubtitle>{book.subtitle}</StyledSubtitle>
-      <StyledPrice>{book.price}</StyledPrice>
+      <StyledImageBlock>
+        <StyledImage src={book.image} alt={book.title} />
+      </StyledImageBlock>
+      <StyledBlock>
+        <StyledTitle>{book.title}</StyledTitle>
+        <StyledText>{book.isbn13}</StyledText>
+        <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+        <StyledPrice>{book.price}</StyledPrice>
+      </StyledBlock>
     </StyledLink>
   );
 };

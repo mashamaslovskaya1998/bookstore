@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { bookAPI } from "../../services/bookService";
 import { ISearchBooksApi } from "../../types/books";
-import { StyledSearchBooks } from "./style";
+import { Title } from "../Title/Title";
+import {
+  StyledImage,
+  StyledIsbn,
+  StyledLink,
+  StyledPrice,
+  StyledSearchBooks,
+  StyledSubtitle,
+  StyledText,
+  StyledTitle,
+} from "./style";
 
 export const SearchBookResult = () => {
   const { title = "", page = "" } = useParams();
@@ -15,19 +25,19 @@ export const SearchBookResult = () => {
   }, [title, page]);
   return (
     <div>
-      <h1>Search Result</h1>
-      <p>Found {searchResult?.total} books</p>
+      <Title>Search Result</Title>
+      <StyledText>Found {searchResult?.total} books</StyledText>
       <StyledSearchBooks>
         {searchResult?.books.map((book) => {
           return (
             <li key={book.isbn13}>
-              <Link to={`/books/${book.isbn13}`}>
-                <img src={book.image} alt={book.title} />
-                <h2>{book.title}</h2>
-                <p>{book.isbn13}</p>
-                <p>{book.subtitle}</p>
-                <p>{book.price}</p>
-              </Link>
+              <StyledLink to={`/books/${book.isbn13}`}>
+                <StyledImage src={book.image} alt={book.title} />
+                <StyledTitle>{book.title}</StyledTitle>
+                <StyledIsbn>{book.isbn13}</StyledIsbn>
+                <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+                <StyledPrice>{book.price}</StyledPrice>
+              </StyledLink>
             </li>
           );
         })}

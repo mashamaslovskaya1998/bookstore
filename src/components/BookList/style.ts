@@ -2,7 +2,7 @@ import styled from "styled-components";
 const StyledBooksList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 32px;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;

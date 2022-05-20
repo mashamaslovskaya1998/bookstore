@@ -1,17 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/Logo.svg";
+import { Logo } from "../../assets";
 
 import { Nav } from "../Nav/Nav";
 import { Search } from "../Search/Search";
-// import { Search } from "../Search/Search";
-import { StyledHeader, StyledLogo } from "./style";
+import { StyledHeader } from "./style";
 
 export const Header = () => {
   return (
     <StyledHeader>
       <Link to="/">
-        <StyledLogo src={Logo} alt="Logo" />
+        <Logo />
       </Link>
       <Search />
       <Nav />
