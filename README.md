@@ -1,1 +1,1 @@
-My project https://github.com/mashamaslovskaya1998/bookstore.git
+My project https://mashamaslovskaya1998.github.io/bookstore/
