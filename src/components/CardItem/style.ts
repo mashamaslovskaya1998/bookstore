@@ -6,7 +6,7 @@ import { typography } from "../../ui/typography";
 export const StyledLink = styled(Link)`
   text-decoration: none;
   display: grid;
-  grid-template-columns: 1fr 2fr 56px;
+  grid-template-columns: 1fr 2fr 1fr 56px;
   grid-column-gap: 32px;
   margin-bottom: 50px;
 `;
@@ -15,6 +15,7 @@ export const StyledImageBlock = styled.div`
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  align-self: center;
 `;
 
 export const StyledImage = styled.img`
@@ -50,4 +51,13 @@ export const HeartContainer = styled.div`
   max-width: 56px;
   width: 100%;
   cursor: pointer;
+`;
+export const StyledCountButton = styled.button`
+  background-color: ${Colors.BG_WHITE};
+  font-size: 40px;
+  border: none;
+  padding: 0 10px;
+`;
+export const StyledCountContainer = styled.div`
+  margin-top: 24px;
 `;

@@ -1,12 +1,11 @@
-import React, { Component } from "react";
 import Slider from "react-slick";
-import { INewBooksApi } from "../../types";
+import { IBookDetailsApi } from "../../types";
 
 interface ISliderProps {
-    books: INewBooksApi[];
-  }
+  books: IBookDetailsApi[];
+}
 
-export const SliderComponent = ({books}: ISliderProps) => {
+export const SliderComponent = ({ books }: ISliderProps) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,11 +17,20 @@ export const SliderComponent = ({books}: ISliderProps) => {
     <div>
       <h2> Single Item</h2>
       <Slider {...settings}>
-      {books.map((book) => {
+        {books.map((book) => {
           return (
-           
-          )
-          })}
+            <div>
+              <div>
+                <img src={book.image} alt={book.title} />
+              </div>
+              <div>
+                <p>{book.title}</p>
+                <p>{book.subtitle}</p>
+                <p>{book.price}</p>
+              </div>
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

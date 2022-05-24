@@ -4,4 +4,5 @@ import { ReactComponent as SearchPicture } from "./search-picture.svg";
 import { ReactComponent as ShoppingBag } from "./shopping-bag.svg";
 import { ReactComponent as User } from "./user.svg";
 import { ReactComponent as ArrowDown } from "./arrow-down.svg";
-export { Logo, Heart, SearchPicture, ShoppingBag, User, ArrowDown };
+import { ReactComponent as Cancel } from "./cancel.svg";
+export { Logo, Heart, SearchPicture, ShoppingBag, User, ArrowDown, Cancel };

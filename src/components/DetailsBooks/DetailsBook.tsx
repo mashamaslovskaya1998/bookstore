@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Heart } from "../../assets";
 import { bookAPI } from "../../services/bookService";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/hook";
 import { getFavorites } from "../../store/selector/favoriteSelector";
-import favoritesReducer, {
-  addFavorites,
-} from "../../store/slices/favoritesReducer";
-import { RootState } from "../../store/store";
-import { IBook, IBookDetailsApi, IFavorites } from "../../types";
-import { SliderComponent } from "../Slider/Slider";
+import { addCards } from "../../store/slices/cardReducer";
+import { addFavorites } from "../../store/slices/favoritesReducer";
+import { IBookDetailsApi } from "../../types";
+// import { SliderComponent } from "../Slider/Slider";
 
 import { Title } from "../Title/Title";
 import {
@@ -31,11 +28,30 @@ import {
 } from "./style";
 
 export const DetailsBooks = () => {
+  const initialBookDetails: IBookDetailsApi = {
+    authors: "",
+    desc: "",
+    error: "",
+    image: "",
+    isbn10: "",
+    isbn13: "",
+    language: "",
+    pages: "",
+    pdf: {},
+    price: "",
+    publisher: "",
+    rating: "",
+    subtitle: "",
+    title: "",
+    url: "",
+    year: "",
+  };
   const favorites = useAppSelector(getFavorites);
   const dispatch = useAppDispatch();
 
   const { id = "" } = useParams();
-  const [detailsBook, setDetailsBook] = useState<IBookDetailsApi>();
+  const [detailsBook, setDetailsBook] =
+    useState<IBookDetailsApi>(initialBookDetails);
 
   useEffect(() => {
     bookAPI.getBookDetails(id).then((book) => {
@@ -43,10 +59,30 @@ export const DetailsBooks = () => {
     });
   }, [id]);
 
-  const handleFavorites = (book: IBook) => {
-    dispatch(addFavorites(book));
+  const handleFavorites = () => {
+    dispatch(
+      addFavorites({
+        title: detailsBook?.title,
+        subtitle: detailsBook?.subtitle,
+        price: detailsBook?.price,
+        image: detailsBook?.image,
+        isbn13: detailsBook?.isbn13,
+        url: detailsBook?.url,
+      })
+    );
   };
-
+  const handleCards = () => {
+    dispatch(
+      addCards({
+        title: detailsBook?.title,
+        subtitle: detailsBook?.subtitle,
+        price: detailsBook?.price,
+        image: detailsBook?.image,
+        isbn13: detailsBook?.isbn13,
+        url: detailsBook?.url,
+      })
+    );
+  };
   return (
     <div>
       <Title> {detailsBook?.title ? detailsBook.title : "No Title"}</Title>
@@ -56,9 +92,6 @@ export const DetailsBooks = () => {
             src={detailsBook?.image}
             alt={detailsBook?.title}
           ></StyledImage>
-          <HeartContainer>
-            <Heart />
-          </HeartContainer>
         </StyledImageBlock>
 
         <StyledBlock>
@@ -77,9 +110,10 @@ export const DetailsBooks = () => {
               <StyledArrowDown />
             </StyledAttribute>
             <StyledButtonContainer>
-              <StyledButton onClick={() => handleFavorites(book)}>
-                Add to chart
-              </StyledButton>
+              <StyledButton onClick={handleCards}>Add to chart</StyledButton>
+              <HeartContainer onClick={handleFavorites}>
+                <Heart />
+              </HeartContainer>
             </StyledButtonContainer>
           </StyledInfoContainer>
         </StyledBlock>
@@ -90,7 +124,7 @@ export const DetailsBooks = () => {
         <StyledDescriptionButtons>Reviews</StyledDescriptionButtons>
       </StyledBlockButtons>
       <StyledAttribute>{detailsBook?.desc}</StyledAttribute>
-      {/* <SliderComponent /> */}
+      {/* <SliderComponent books={book} /> */}
     </div>
   );
 };

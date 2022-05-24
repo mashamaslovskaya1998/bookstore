@@ -1,16 +1,11 @@
 import { FavoriteList } from "../components/FavoriteList/FavoriteList";
+import { Title } from "../components/Title/Title";
 
 export const FavoritesBook = () => {
-  // const [newFavorite, setNewFavorite] = useState<INewFavoritesApi>({
-  //   favorites: [],
-  //   error: "",
-  //   total: "",
-  // });
-
-  // useEffect(() => {
-  //   bookAPI.getNewBooks().then((favorites) => {
-  //     setNewFavorite(favorites);
-  //   });
-  // }, []);
-  return <FavoriteList />;
+  return (
+    <div>
+      <Title>Favorites</Title>
+      <FavoriteList></FavoriteList>
+    </div>
+  );
 };

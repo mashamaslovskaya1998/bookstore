@@ -1,16 +1,12 @@
-// import { useAppSelector } from "../../store/hooks/hook";
-// import { getFavorites } from "../../store/selector/favoriteSelector";
-import { IFavorites } from "../../types";
+import { useAppSelector } from "../../store/hooks/hook";
+import { getFavorites } from "../../store/selector/favoriteSelector";
 import { FavoriteItem } from "../FavoriteItem/FavoriteItem";
 
-interface IBookListProps {
-  books: IBook[];
-}
-
-export const FavoriteList = ({ books }: IBookListProps) => {
+export const FavoriteList = () => {
+  const { favorites } = useAppSelector(getFavorites);
   return (
     <div>
-      {books.map((book) => {
+      {favorites.map((book) => {
         return <FavoriteItem book={book}></FavoriteItem>;
       })}
     </div>

@@ -22,19 +22,6 @@ export const StyledImage = styled.img`
 
   justify-content: center;
 `;
-export const HeartContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 56px;
-  width: 100%;
-  height: 56px;
-  background-color: ${Colors.BG_GREY};
-  cursor: pointer;
-`;
 export const StyledBlock = styled.div`
   display: grid;
   grid-template-rows: 60px 1fr;
@@ -67,15 +54,30 @@ export const StyledButtonContainer = styled.div`
   display: grid;
   grid-column-start: 1;
   grid-column-end: 3;
+  grid-column-gap: 20px;
 `;
 export const StyledButton = styled.button`
   background-color: ${Colors.PRIMARY};
-  color: ${Colors.BG_WHITE};
+  color: ${Colors.BG_GREY};
   font-weight: 700;
   font-size: 24px;
   line-height: 24px;
   padding: 13px;
   border-radius: 5px;
+  cursor: pointer;
+`;
+export const HeartContainer = styled.div`
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 70px;
+  width: 100%;
+  background-color: ${Colors.BG_GREY};
+  border: 1px solid ${Colors.PRIMARY};
+  border-radius: 5px;
+  cursor: pointer;
 `;
 export const StyledBlockButtons = styled.div`
   display: grid;

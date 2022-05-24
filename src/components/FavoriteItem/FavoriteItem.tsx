@@ -1,7 +1,8 @@
-import React from "react";
+import { Heart } from "../../assets";
 import { routes } from "../../routes/routes";
-import { IBook, IFavorites } from "../../types";
+import { IBook } from "../../types";
 import {
+  HeartContainer,
   StyledBlock,
   StyledImage,
   StyledImageBlock,
@@ -17,7 +18,7 @@ interface IBookItemProps {
 
 export const FavoriteItem = ({ book }: IBookItemProps) => {
   return (
-    <StyledLink to={`${routes.FAVORITEBOOKS}/${book.isbn13}`}>
+    <StyledLink to={`${routes.favoritebook}/${book.isbn13}`}>
       <StyledImageBlock>
         <StyledImage src={book.image} alt={book.title} />
       </StyledImageBlock>
@@ -26,6 +27,9 @@ export const FavoriteItem = ({ book }: IBookItemProps) => {
         <StyledSubtitle>{book.subtitle}</StyledSubtitle>
         <StyledPrice>{book.price}</StyledPrice>
       </StyledBlock>
+      <HeartContainer>
+        <Heart />
+      </HeartContainer>
     </StyledLink>
   );
 };

@@ -5,7 +5,7 @@ import { routes } from "../routes/routes";
 export const User = () => {
   return (
     <div>
-      <Link to={routes.USER}>User</Link>
+      <Link to={routes.user}>User</Link>
     </div>
   );
 };

@@ -41,8 +41,7 @@ export interface IUserStore {
 export interface IFavorites {
   favorites: IBook[];
 }
-// export interface INewFavoritesApi {
-//   favorites: IFavorites[];
-//   error: string;
-//   total: string;
-// }
+
+export interface ICards {
+  cards: IBook[];
+}
