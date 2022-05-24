@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
+// import detailsBookReducer from "./slices/detailsBookReducer";
+import favoritesReducer from "./slices/favoritesReducer";
 import userReducer from "./slices/userReducer";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     user: userReducer,
+    favorites: favoritesReducer,
   },
 });
-export default store;
 
-export type RootStore = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

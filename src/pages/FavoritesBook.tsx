@@ -1,13 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { routes } from "../routes/routes";
-import { bookAPI } from "../services/bookService";
+import { FavoriteList } from "../components/FavoriteList/FavoriteList";
 
 export const FavoritesBook = () => {
-  console.log(bookAPI);
-  return (
-    <div>
-      <Link to={routes.FAVORITEBOOKS}>Favorite Books</Link>
-    </div>
-  );
+  // const [newFavorite, setNewFavorite] = useState<INewFavoritesApi>({
+  //   favorites: [],
+  //   error: "",
+  //   total: "",
+  // });
+
+  // useEffect(() => {
+  //   bookAPI.getNewBooks().then((favorites) => {
+  //     setNewFavorite(favorites);
+  //   });
+  // }, []);
+  return <FavoriteList />;
 };

@@ -1,7 +1,7 @@
-import { ReactComponent as Logo } from "./Logo.svg";
-import { ReactComponent as Heart } from "./Heart.svg";
-import { ReactComponent as SearchPicture } from "./SearchPicture.svg";
-import { ReactComponent as ShoppingBag } from "./ShoppingBag.svg";
-import { ReactComponent as User } from "./User.svg";
-import { ReactComponent as ArrowDown } from "./ArrowDown.svg";
+import { ReactComponent as Logo } from "./logo.svg";
+import { ReactComponent as Heart } from "./heart.svg";
+import { ReactComponent as SearchPicture } from "./search-picture.svg";
+import { ReactComponent as ShoppingBag } from "./shopping-bag.svg";
+import { ReactComponent as User } from "./user.svg";
+import { ReactComponent as ArrowDown } from "./arrow-down.svg";
 export { Logo, Heart, SearchPicture, ShoppingBag, User, ArrowDown };

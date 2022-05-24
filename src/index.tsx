@@ -2,9 +2,9 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import App from "./App";
-import store from "./store/store";
+import { store } from "./store/store";
 import "./firebase";
-import GlobalStyles from "./GlobalStyles";
+import GlobalStyles from "./ui/GlobalStyles";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {

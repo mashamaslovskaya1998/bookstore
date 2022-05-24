@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { AppRouter } from "./router/AppRouter";
-import { IBook } from "./types/books";
+import { IBook } from "./types";
 
 const App = () => {
   const [books, setBooks] = useState<IBook[]>([]);

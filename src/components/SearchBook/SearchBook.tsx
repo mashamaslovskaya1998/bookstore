@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { bookAPI } from "../../services/bookService";
-import { ISearchBooksApi } from "../../types/books";
+import { ISearchBooksApi } from "../../types";
 import { Title } from "../Title/Title";
 import {
   StyledImage,

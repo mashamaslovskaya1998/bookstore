@@ -32,12 +32,6 @@ export const StyledTitle = styled.h3`
   ${typography.H3}
   margin-bottom: 8px;
 `;
-export const StyledText = styled.p`
-  color: ${Colors.SECONDARY};
-  margin-bottom: 10px;
-  font-size: 16px;
-  line-height: 24px;
-`;
 
 export const StyledSubtitle = styled.p`
   color: ${Colors.PRIMARY2};

@@ -22,6 +22,19 @@ export const StyledImage = styled.img`
 
   justify-content: center;
 `;
+export const HeartContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 56px;
+  width: 100%;
+  height: 56px;
+  background-color: ${Colors.BG_GREY};
+  cursor: pointer;
+`;
 export const StyledBlock = styled.div`
   display: grid;
   grid-template-rows: 60px 1fr;

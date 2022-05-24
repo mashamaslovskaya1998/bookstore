@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { Heart } from "../../assets";
 import { bookAPI } from "../../services/bookService";
-import { IBookDetailsApi } from "../../types/books";
+import { useAppDispatch, useAppSelector } from "../../store/hooks/hook";
+import { getFavorites } from "../../store/selector/favoriteSelector";
+import favoritesReducer, {
+  addFavorites,
+} from "../../store/slices/favoritesReducer";
+import { RootState } from "../../store/store";
+import { IBook, IBookDetailsApi, IFavorites } from "../../types";
+import { SliderComponent } from "../Slider/Slider";
+
 import { Title } from "../Title/Title";
 import {
+  HeartContainer,
   StyledArrowDown,
   StyledAttribute,
   StyledBlock,
@@ -20,6 +31,9 @@ import {
 } from "./style";
 
 export const DetailsBooks = () => {
+  const favorites = useAppSelector(getFavorites);
+  const dispatch = useAppDispatch();
+
   const { id = "" } = useParams();
   const [detailsBook, setDetailsBook] = useState<IBookDetailsApi>();
 
@@ -28,6 +42,10 @@ export const DetailsBooks = () => {
       setDetailsBook(book);
     });
   }, [id]);
+
+  const handleFavorites = (book: IBook) => {
+    dispatch(addFavorites(book));
+  };
 
   return (
     <div>
@@ -38,6 +56,9 @@ export const DetailsBooks = () => {
             src={detailsBook?.image}
             alt={detailsBook?.title}
           ></StyledImage>
+          <HeartContainer>
+            <Heart />
+          </HeartContainer>
         </StyledImageBlock>
 
         <StyledBlock>
@@ -49,14 +70,16 @@ export const DetailsBooks = () => {
             <StyledAttribute>{detailsBook?.publisher}</StyledAttribute>
             <StyledParams>Language</StyledParams>
             <StyledAttribute>{detailsBook?.language}</StyledAttribute>
-            <StyledParams>Format</StyledParams>
+            <StyledParams>Pages</StyledParams>
             <StyledAttribute>{detailsBook?.pages}</StyledAttribute>
             <StyledAttribute>
               More details
               <StyledArrowDown />
             </StyledAttribute>
             <StyledButtonContainer>
-              <StyledButton>Add ro chart</StyledButton>
+              <StyledButton onClick={() => handleFavorites(book)}>
+                Add to chart
+              </StyledButton>
             </StyledButtonContainer>
           </StyledInfoContainer>
         </StyledBlock>
@@ -67,6 +90,7 @@ export const DetailsBooks = () => {
         <StyledDescriptionButtons>Reviews</StyledDescriptionButtons>
       </StyledBlockButtons>
       <StyledAttribute>{detailsBook?.desc}</StyledAttribute>
+      {/* <SliderComponent /> */}
     </div>
   );
 };

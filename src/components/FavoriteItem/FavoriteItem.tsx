@@ -1,4 +1,6 @@
-import { IBook } from "../../types/";
+import React from "react";
+import { routes } from "../../routes/routes";
+import { IBook, IFavorites } from "../../types";
 import {
   StyledBlock,
   StyledImage,
@@ -6,27 +8,24 @@ import {
   StyledLink,
   StyledPrice,
   StyledSubtitle,
-  StyledText,
   StyledTitle,
 } from "./style";
 
 interface IBookItemProps {
   book: IBook;
 }
-const BookItem = ({ book }: IBookItemProps) => {
+
+export const FavoriteItem = ({ book }: IBookItemProps) => {
   return (
-    <StyledLink to={`/books/${book.isbn13}`}>
+    <StyledLink to={`${routes.FAVORITEBOOKS}/${book.isbn13}`}>
       <StyledImageBlock>
         <StyledImage src={book.image} alt={book.title} />
       </StyledImageBlock>
       <StyledBlock>
         <StyledTitle>{book.title}</StyledTitle>
-        <StyledText>{book.isbn13}</StyledText>
         <StyledSubtitle>{book.subtitle}</StyledSubtitle>
         <StyledPrice>{book.price}</StyledPrice>
       </StyledBlock>
     </StyledLink>
   );
 };
-
-export default BookItem;
