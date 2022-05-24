@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.js": "/bookstore/static/js/main.863da4d8.js",
-    "static/media/Logo.svg": "/bookstore/static/media/Logo.4df062493d3c8a2d9a244c508c206884.svg",
-    "static/media/Heart.svg": "/bookstore/static/media/Heart.28220c581538742fc7469c10d8a9e269.svg",
-    "static/media/ShoppingBag.svg": "/bookstore/static/media/ShoppingBag.291776166f59fef865d350aaa5d72385.svg",
-    "static/media/ArrowDown.svg": "/bookstore/static/media/ArrowDown.8e4d525ccfcf6c02b15662397cf3b1ac.svg",
-    "static/media/SearchPicture.svg": "/bookstore/static/media/SearchPicture.fb7c71339a4b264dfb3e9806f3b103eb.svg",
-    "static/media/User.svg": "/bookstore/static/media/User.f95ce053779a6201d74bbfa54c39de4c.svg",
+    "main.js": "/bookstore/static/js/main.5e406bf3.js",
+    "static/media/logo.svg": "/bookstore/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
+    "static/media/heart.svg": "/bookstore/static/media/heart.28220c581538742fc7469c10d8a9e269.svg",
+    "static/media/cancel.svg": "/bookstore/static/media/cancel.e1ed8d2746670531de6b56e1e1386589.svg",
+    "static/media/shopping-bag.svg": "/bookstore/static/media/shopping-bag.291776166f59fef865d350aaa5d72385.svg",
+    "static/media/arrow-down.svg": "/bookstore/static/media/arrow-down.8e4d525ccfcf6c02b15662397cf3b1ac.svg",
+    "static/media/search-picture.svg": "/bookstore/static/media/search-picture.fb7c71339a4b264dfb3e9806f3b103eb.svg",
+    "static/media/user.svg": "/bookstore/static/media/user.f95ce053779a6201d74bbfa54c39de4c.svg",
     "index.html": "/bookstore/index.html",
-    "main.863da4d8.js.map": "/bookstore/static/js/main.863da4d8.js.map"
+    "main.5e406bf3.js.map": "/bookstore/static/js/main.5e406bf3.js.map"
   },
   "entrypoints": [
-    "static/js/main.863da4d8.js"
+    "static/js/main.5e406bf3.js"
   ]
 }
