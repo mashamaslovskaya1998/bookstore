@@ -30,7 +30,7 @@ export const AppRouter = () => {
       <Route path={routes.user} element={<User />} />
       <Route path={routes.sign_in} element={<Login />} />
       <Route path={routes.sign_up} element={<Register />} />
-      <Route path={routes.not_found} element={<NotFound />} />
+      {/* <Route path={routes.not_found} element={<NotFound />} /> */}
     </Routes>
   );
 };

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Cancel } from "../../assets";
 import { routes } from "../../routes/routes";
+import { useAppDispatch } from "../../store/hooks/hook";
+import { removeCard } from "../../store/slices/cardReducer";
 import { IBook } from "../../types";
 import {
   HeartContainer,
@@ -20,6 +22,10 @@ interface IBookItemProps {
 }
 
 export const CardItem = ({ book }: IBookItemProps) => {
+  const dispatch = useAppDispatch();
+  const handleRemoveCard = (card: IBook) => {
+    dispatch(removeCard(card));
+  };
   const [count, setCount] = useState(1);
   const handleButtonMin = () => {
     setCount(count - 1);
@@ -30,7 +36,11 @@ export const CardItem = ({ book }: IBookItemProps) => {
   return (
     <StyledLink to={`${routes.card}/${book.isbn13}`}>
       <StyledImageBlock>
-        <StyledImage src={book.image} alt={book.title} />
+        <StyledImage
+          src={book.image}
+          alt={book.title}
+          onClick={() => handleRemoveCard}
+        />
       </StyledImageBlock>
       <StyledBlock>
         <StyledTitle>{book.title}</StyledTitle>

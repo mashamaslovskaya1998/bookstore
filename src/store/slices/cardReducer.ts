@@ -11,10 +11,12 @@ const cardsReducer = createSlice({
     addCards: (state, actions: PayloadAction<IBook>) => {
       state.cards.push(actions.payload);
     },
-    // counterCards: (state, actions: PayloadAction<IBook>) =>{
-
-    // }
+    removeCard: (state, { payload }: PayloadAction<IBook>) => {
+      state.cards = state.cards.filter(
+        (item) => item.isbn13 !== payload.isbn13
+      );
+    },
   },
 });
 export default cardsReducer.reducer;
-export const { addCards } = cardsReducer.actions;
+export const { addCards, removeCard } = cardsReducer.actions;
