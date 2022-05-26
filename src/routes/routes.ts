@@ -2,7 +2,7 @@ export enum routes {
   home = "/",
   sign_in = "/sign-in",
   sign_up = "/sign-up",
-  // not_found = "*",
+  not_found = "*",
   favoritebook = "/favoriteBook",
   card = "/card",
   user = "/user",
