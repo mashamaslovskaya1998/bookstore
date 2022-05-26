@@ -18,7 +18,7 @@ interface IBookItemProps {
 
 export const FavoriteItem = ({ book }: IBookItemProps) => {
   return (
-    <StyledLink to={`${routes.favoritebook}/${book.isbn13}`}>
+    <StyledLink to={`${routes.FAVORITE_BOOK}/${book.isbn13}`}>
       <StyledImageBlock>
         <StyledImage src={book.image} alt={book.title} />
       </StyledImageBlock>

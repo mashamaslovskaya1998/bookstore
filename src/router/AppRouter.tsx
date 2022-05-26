@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { MainTemplate } from "../components/MainTemplate";
+import { MainTemplate } from "../components/MainTemplate/MainTemplate";
 import { Search } from "../components/Search/Search";
 import { DetailsBooks } from "../components/DetailsBooks/DetailsBook";
 import { Cards } from "../pages/Cards";
@@ -17,20 +17,20 @@ export const AppRouter = () => {
     <Routes>
       <Route path="/" element={<MainTemplate />}>
         {/* <Route index element={<Home />} /> */}
-        <Route path={routes.newbook} element={<NewBook />} />
-        <Route path={routes.search} element={<Search />} />
+        <Route path={routes.NEWBOOK} element={<NewBook />} />
+        <Route path={routes.SEARCH} element={<Search />} />
         <Route
-          path={routes.search_book_results}
+          path={routes.SEARCH_BOOK_RESULT}
           element={<SearchBookResult />}
         />
-        <Route path={routes.details_book} element={<DetailsBooks />} />
-        <Route path={routes.favoritebook} element={<FavoritesBook />} />
-        <Route path={routes.card} element={<Cards />} />
+        <Route path={routes.DETAILS_BOOK} element={<DetailsBooks />} />
+        <Route path={routes.FAVORITE_BOOK} element={<FavoritesBook />} />
+        <Route path={routes.CARD} element={<Cards />} />
       </Route>
-      <Route path={routes.user} element={<User />} />
-      <Route path={routes.sign_in} element={<Login />} />
-      <Route path={routes.sign_up} element={<Register />} />
-      <Route path={routes.not_found} element={<NotFound />} />
+      <Route path={routes.USER} element={<User />} />
+      <Route path={routes.SIGN_IN} element={<Login />} />
+      <Route path={routes.SIGN_UP} element={<Register />} />
+      <Route path={routes.NOT_FOUND} element={<NotFound />} />
     </Routes>
   );
 };

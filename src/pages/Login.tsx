@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <div>
       <h1>Login</h1>
-      <Link to={routes.sign_up}>Go to register</Link>
+      <Link to={routes.SIGN_IN}>Go to register</Link>
     </div>
   );
 };

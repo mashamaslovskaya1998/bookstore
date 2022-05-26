@@ -34,7 +34,7 @@ export const CardItem = ({ book }: IBookItemProps) => {
     setCount(count + 1);
   };
   return (
-    <StyledLink to={`${routes.card}/${book.isbn13}`}>
+    <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
       <StyledImageBlock>
         <StyledImage
           src={book.image}

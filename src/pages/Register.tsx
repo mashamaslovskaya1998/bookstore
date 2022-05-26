@@ -14,7 +14,7 @@ const Register = () => {
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         dispatch(setUser(userCredential.user.email));
-        navigate(routes.home);
+        navigate(routes.Home);
       })
       .catch(console.error);
   };
@@ -26,7 +26,7 @@ const Register = () => {
         <input type="password" {...register("password")} />
         <button type="submit">Send</button>
       </form>
-      <Link to={routes.sign_in}>have account</Link>
+      <Link to={routes.SIGN_IN}>have account</Link>
     </div>
   );
 };
