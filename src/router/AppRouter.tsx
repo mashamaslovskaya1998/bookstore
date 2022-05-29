@@ -7,10 +7,11 @@ import { FavoritesBook } from "../pages/FavoritesBook";
 import Login from "../pages/Login";
 import { NewBook } from "../pages/NewBook";
 import NotFound from "../pages/NotFound";
-import Register from "../pages/Register";
+import Register from "../pages/SignUp";
 import { SearchBookResult } from "../components/SearchBook/SearchBook";
 import { User } from "../pages/User";
 import { routes } from "../routes/routes";
+// import { Home } from "../pages/Home";
 
 export const AppRouter = () => {
   return (
@@ -26,11 +27,11 @@ export const AppRouter = () => {
         <Route path={routes.DETAILS_BOOK} element={<DetailsBooks />} />
         <Route path={routes.FAVORITE_BOOK} element={<FavoritesBook />} />
         <Route path={routes.CARD} element={<Cards />} />
+        <Route path={routes.USER} element={<User />} />
+        <Route path={routes.SIGN_IN} element={<Login />} />
+        <Route path={routes.SIGN_UP} element={<Register />} />
+        <Route path={routes.NOT_FOUND} element={<NotFound />} />
       </Route>
-      <Route path={routes.USER} element={<User />} />
-      <Route path={routes.SIGN_IN} element={<Login />} />
-      <Route path={routes.SIGN_UP} element={<Register />} />
-      <Route path={routes.NOT_FOUND} element={<NotFound />} />
     </Routes>
   );
 };

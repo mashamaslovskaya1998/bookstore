@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+// import { Navigate } from "react-router-dom";
+// import { routes } from "../routes/routes";
 
 export const Home = () => {
-  const { isAuth, email } = useSelector(({ user }: RootState) => user);
-
-  if (isAuth) {
-    return <div>{email}</div>;
-  }
-  return;
+  // const isAuth = false;
+  // if (isAuth) {
+  //   return <div>home</div>;
+  // }
+  // return <Navigate to={routes.SIGN_UP} />;
 };

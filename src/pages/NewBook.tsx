@@ -19,6 +19,7 @@ export const NewBook = () => {
       setNewBooks(books);
     });
   }, []);
+
   return (
     <div>
       <Title>New Releases Books</Title>

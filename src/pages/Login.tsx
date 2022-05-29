@@ -1,12 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { routes } from "../routes/routes";
+import { SignIn } from "../components/SignIn/SignIn";
 
 const Login = () => {
   return (
     <div>
-      <h1>Login</h1>
-      <Link to={routes.SIGN_IN}>Go to register</Link>
+      <SignIn></SignIn>
     </div>
   );
 };
