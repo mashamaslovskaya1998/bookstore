@@ -3,10 +3,17 @@ import styled from "styled-components";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
 
+export const StyledContainerCard = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 100px 56px;
+  grid-column-gap: 32px;
+  margin-bottom: 50px;
+`;
+
 export const StyledLink = styled(Link)`
   text-decoration: none;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 56px;
+  grid-template-columns: 1fr 2fr;
   grid-column-gap: 32px;
   margin-bottom: 50px;
 `;
@@ -44,12 +51,17 @@ export const StyledPrice = styled.h3`
 export const StyledBlock = styled.div`
   align-self: center;
 `;
-export const HeartContainer = styled.div`
-  display: flex;
+export const HeartContainer = styled.button`
+  /* display: flex;
   justify-content: center;
   align-items: center;
   max-width: 56px;
-  width: 100%;
+  width: 100%; */
+  /* position: absolute; */
+  background-color: ${Colors.BG_WHITE};
+  border: none;
+  /* right: 200px;
+  top: 450px; */
   cursor: pointer;
 `;
 export const StyledCountButton = styled.button`

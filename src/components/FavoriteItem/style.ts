@@ -3,10 +3,17 @@ import styled from "styled-components";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
 
+export const StyledContainerFavorites = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 56px;
+  grid-column-gap: 32px;
+  margin-bottom: 50px;
+`;
+
 export const StyledLink = styled(Link)`
   text-decoration: none;
   display: grid;
-  grid-template-columns: 1fr 2fr 56px;
+  grid-template-columns: 1fr 2fr;
   grid-column-gap: 32px;
   margin-bottom: 50px;
 `;
@@ -43,11 +50,13 @@ export const StyledPrice = styled.h3`
 export const StyledBlock = styled.div`
   align-self: center;
 `;
-export const HeartContainer = styled.div`
+export const HeartContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 56px;
   width: 100%;
+  border: none;
+  background-color: ${Colors.BG_WHITE};
   cursor: pointer;
 `;

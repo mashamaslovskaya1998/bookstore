@@ -9,6 +9,7 @@ export const User = () => {
   }
   return (
     <div>
+      {/* <User /> */}
       <Navigate to={routes.SIGN_IN} />
     </div>
   );
