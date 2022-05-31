@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -24,12 +24,15 @@ export const SignIn = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data: any) => {
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, data.email, data.password)
+    signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         dispatch(setUser(userCredential.user.email));
         navigate(routes.NEWBOOK);
       })
-      .catch(console.error);
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.log(errorMessage);
+      });
   };
   return (
     <StyledContainer>

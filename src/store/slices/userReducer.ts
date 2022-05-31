@@ -3,7 +3,8 @@ import { IUserStore } from "../../types";
 
 const initialState: IUserStore = {
   isAuth: false,
-  email: null,
+  email: undefined,
+  name: undefined,
 };
 const userSlice = createSlice({
   name: "user",
@@ -13,12 +14,15 @@ const userSlice = createSlice({
       state.isAuth = true;
       state.email = action.payload;
     },
+    setUserName: (state, action) => {
+      state.name = action.payload;
+    },
     unsetUser: (state) => {
       state.isAuth = false;
-      state.email = null;
+      state.email = undefined;
     },
   },
 });
 
-export const { setUser, unsetUser } = userSlice.actions;
+export const { setUser, unsetUser, setUserName } = userSlice.actions;
 export default userSlice.reducer;

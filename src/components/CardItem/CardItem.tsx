@@ -15,11 +15,11 @@ import {
   StyledTitle,
 } from "./style";
 
-interface IBookItemProps {
+interface IBookCardProps {
   book: IBook;
 }
 
-export const CardItem = ({ book }: IBookItemProps) => {
+export const CardItem = ({ book }: IBookCardProps) => {
   const dispatch = useAppDispatch();
   const handleRemoveCard = (book: IBook) => {
     dispatch(removeCard(book));

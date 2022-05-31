@@ -35,7 +35,8 @@ export interface ISearchBooksApi extends INewBooksApi {
 
 export interface IUserStore {
   isAuth: boolean;
-  email: string | null;
+  email: string | undefined;
+  name: string | undefined;
 }
 
 export interface IFavorites {

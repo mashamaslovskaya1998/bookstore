@@ -4,7 +4,7 @@ import { Search } from "../components/Search/Search";
 import { DetailsBooks } from "../components/DetailsBooks/DetailsBook";
 import { Cards } from "../pages/Cards";
 import { FavoritesBook } from "../pages/FavoritesBook";
-import Login from "../pages/Login";
+import Login from "../pages/SignIn";
 import { NewBook } from "../pages/NewBook";
 import NotFound from "../pages/NotFound";
 import Register from "../pages/SignUp";
