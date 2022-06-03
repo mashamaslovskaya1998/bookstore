@@ -13,14 +13,15 @@ export const StyledImageBlock = styled.div`
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  position: relative;
 `;
 export const StyledImage = styled.img`
-  margin-bottom: 21px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-
-  justify-content: center;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
 `;
 export const StyledBlock = styled.div`
   display: grid;
@@ -45,6 +46,20 @@ export const StyledAttribute = styled.p`
   line-height: 32px;
   color: ${Colors.PRIMARY};
 `;
+export const StyledAttributeDetails = styled.p`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 59px;
+  color: ${Colors.PRIMARY};
+`;
+export const StyledAttributeDescription = styled.p`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  margin-bottom: 59px;
+  color: ${Colors.PRIMARY};
+`;
 export const StyledInfoContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -55,6 +70,7 @@ export const StyledButtonContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   grid-column-gap: 20px;
+  margin-bottom: 40px;
 `;
 export const StyledButton = styled.button`
   background-color: ${Colors.PRIMARY};
@@ -83,6 +99,7 @@ export const StyledBlockButtons = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   border-bottom: 1px rgb(231, 231, 231) solid;
+  margin-bottom: 48px;
 `;
 export const StyledDescriptionButtons = styled.button`
   color: ${Colors.PRIMARY};
@@ -99,4 +116,14 @@ export const StyledDescriptionButtons = styled.button`
 `;
 export const StyledArrowDown = styled(ArrowDown)`
   margin-left: 5px;
+`;
+export const StyledPreviewBook = styled.div`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-content: center;
 `;

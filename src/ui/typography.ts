@@ -40,7 +40,7 @@ const B1 = css`
 const B2 = css`
   font-weight: 600;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
 `;
 
 export const typography = {

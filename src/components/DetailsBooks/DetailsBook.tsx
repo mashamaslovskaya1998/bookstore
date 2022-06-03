@@ -6,14 +6,17 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks/hook";
 import { getFavorites } from "../../store/selector/favoriteSelector";
 import { addCards } from "../../store/slices/cardReducer";
 import { addFavorites } from "../../store/slices/favoritesReducer";
-import { IBookDetailsApi } from "../../types";
-// import { SliderComponent } from "../Slider/Slider";
+import { IBookDetailsApi, INewBooksApi } from "../../types";
+import { Info } from "../Info/Info";
+import { SliderComponent } from "../Slider/Slider";
 
 import { Title } from "../Title/Title";
 import {
   HeartContainer,
   StyledArrowDown,
   StyledAttribute,
+  StyledAttributeDescription,
+  StyledAttributeDetails,
   StyledBlock,
   StyledBlockButtons,
   StyledButton,
@@ -24,10 +27,14 @@ import {
   StyledImageBlock,
   StyledInfoContainer,
   StyledParams,
+  StyledPreviewBook,
   StyledPrice,
 } from "./style";
 
 export const DetailsBooks = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const initialBookDetails: IBookDetailsApi = {
     authors: "",
     desc: "",
@@ -46,6 +53,7 @@ export const DetailsBooks = () => {
     url: "",
     year: "",
   };
+
   const favorites = useAppSelector(getFavorites);
   const dispatch = useAppDispatch();
 
@@ -59,6 +67,17 @@ export const DetailsBooks = () => {
     });
   }, [id]);
 
+  const [newBooks, setNewBooks] = useState<INewBooksApi>({
+    books: [],
+    error: "",
+    total: "",
+  });
+
+  useEffect(() => {
+    bookAPI.getNewBooks().then((books) => {
+      setNewBooks(books);
+    });
+  }, []);
   const handleFavorites = () => {
     dispatch(
       addFavorites({
@@ -95,7 +114,9 @@ export const DetailsBooks = () => {
         </StyledImageBlock>
 
         <StyledBlock>
-          <StyledPrice>{detailsBook?.price}</StyledPrice>
+          <StyledPrice>
+            {detailsBook?.price === "$0.00" ? "Free" : detailsBook?.price}
+          </StyledPrice>
           <StyledInfoContainer>
             <StyledParams>Author</StyledParams>
             <StyledAttribute>{detailsBook?.authors}</StyledAttribute>
@@ -105,16 +126,17 @@ export const DetailsBooks = () => {
             <StyledAttribute>{detailsBook?.language}</StyledAttribute>
             <StyledParams>Pages</StyledParams>
             <StyledAttribute>{detailsBook?.pages}</StyledAttribute>
-            <StyledAttribute>
+            <StyledAttributeDetails>
               More details
               <StyledArrowDown />
-            </StyledAttribute>
+            </StyledAttributeDetails>
             <StyledButtonContainer>
               <StyledButton onClick={handleCards}>Add to chart</StyledButton>
               <HeartContainer onClick={handleFavorites}>
                 <Heart />
               </HeartContainer>
             </StyledButtonContainer>
+            <StyledPreviewBook>Preview book</StyledPreviewBook>
           </StyledInfoContainer>
         </StyledBlock>
       </StyledDetails>
@@ -123,8 +145,13 @@ export const DetailsBooks = () => {
         <StyledDescriptionButtons>Author</StyledDescriptionButtons>
         <StyledDescriptionButtons>Reviews</StyledDescriptionButtons>
       </StyledBlockButtons>
-      <StyledAttribute>{detailsBook?.desc}</StyledAttribute>
-      {/* <SliderComponent books={book} /> */}
+      <StyledAttributeDescription>
+        {detailsBook?.desc}
+      </StyledAttributeDescription>
+      <Info />
+      <div>
+        <SliderComponent books={newBooks.books} />
+      </div>
     </div>
   );
 };

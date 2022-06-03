@@ -10,7 +10,6 @@ export const StyledUser = styled.div`
 export const StyledButtonSave = styled.button`
   padding-top: 16px;
   padding-bottom: 16px;
-  margin-bottom: 20px;
   background-color: ${Colors.PRIMARY};
   text-transform: uppercase;
   color: ${Colors.BG_WHITE};
@@ -25,7 +24,6 @@ export const StyledButtonSave = styled.button`
 export const StyledButtonCancel = styled.button`
   padding-top: 16px;
   padding-bottom: 16px;
-  margin-bottom: 20px;
   text-transform: uppercase;
   background-color: ${Colors.BG_WHITE};
   color: ${Colors.PRIMARY};

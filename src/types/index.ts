@@ -46,3 +46,13 @@ export interface IFavorites {
 export interface ICards {
   cards: IBook[];
 }
+
+export type RequestStatusType = "idle" | "loading" | "success" | "error";
+
+export interface IBooks {
+  response: boolean | null;
+  results: IBook[];
+  totalResults: number;
+  currentPage?: number;
+  totalPages: number;
+}

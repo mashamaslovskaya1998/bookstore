@@ -1,34 +1,53 @@
 import Slider from "react-slick";
-import { IBookDetailsApi } from "../../types";
+import { IBook } from "../../types";
+import {
+  CustomSlide,
+  SlideContainer,
+  SliderBlock,
+  SliderMainTitle,
+  SliderPrice,
+  SliderSubtitle,
+  SliderTitle,
+  StyledImageBlock,
+  StyledLink,
+} from "./style";
 
-interface ISliderProps {
-  books: IBookDetailsApi[];
+interface IProps {
+  books: IBook[];
 }
 
-export const SliderComponent = ({ books }: ISliderProps) => {
+export const SliderComponent = ({ books }: IProps) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    speed: 1000,
+    slidesToShow: 2,
+    slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
   };
+
   return (
     <div>
-      <h2> Single Item</h2>
+      <SliderMainTitle>New books</SliderMainTitle>
       <Slider {...settings}>
         {books.map((book) => {
           return (
-            <div>
-              <div>
-                <img src={book.image} alt={book.title} />
-              </div>
-              <div>
-                <p>{book.title}</p>
-                <p>{book.subtitle}</p>
-                <p>{book.price}</p>
-              </div>
-            </div>
+            <CustomSlide key={book.isbn13}>
+              <StyledLink to={`/books/${book.isbn13}`}>
+                <SlideContainer>
+                  <StyledImageBlock src={book.image} alt={book.title} />
+                  <SliderBlock>
+                    <SliderTitle>{book.title}</SliderTitle>
+                    <SliderSubtitle>{book.subtitle}</SliderSubtitle>
+                    <SliderPrice>
+                      {book.price === "$0.00" ? "Free" : book.price}
+                    </SliderPrice>
+                  </SliderBlock>
+                </SlideContainer>
+              </StyledLink>
+            </CustomSlide>
           );
         })}
       </Slider>

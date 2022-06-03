@@ -12,6 +12,9 @@ export const StyledSearchBooks = styled.div`
   margin: 0 auto;
   padding: 0;
   list-style: none;
+  padding-bottom: 73px;
+  margin-bottom: 48px;
+  border-bottom: 1px rgb(231, 231, 231) solid;
 `;
 export const StyledText = styled.p`
   color: ${Colors.SECONDARY};
@@ -54,4 +57,18 @@ export const StyledSubtitle = styled.p`
 export const StyledPrice = styled.h3`
   ${typography.H3}
   color: ${Colors.PRIMARY};
+`;
+export const StyledPaginationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const StyledPaginationButton = styled.button`
+  border: none;
+  background-color: ${Colors.BG_WHITE};
+  color: ${Colors.PRIMARY};
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 8px;
+  cursor: pointer;
 `;
