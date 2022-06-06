@@ -15,7 +15,6 @@ import {
   StyledPasswordInput,
   StyledSignUp,
   StyledTitle,
-  Notification,
   ErrorMessage,
 } from "./style";
 

@@ -1,30 +1,32 @@
-import { title } from "process";
-import { Link } from "react-router-dom";
-
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "../../assets";
-import { routes } from "../../routes/routes";
+import { useAppSelector } from "../../store/hooks/hook";
+import { getBooks } from "../../store/selector/booksSelector";
 
-import { StyledPaginationButton } from "./style";
+import {
+  CurrentPage,
+  Page,
+  PageRight,
+  Pages,
+  StyledArrowLeft,
+  StyledArrowRight,
+  StyledPaginationButton,
+  StyledPaginationContainer,
+} from "./style";
 
-interface IProps {
-  booksPage: number;
-  totalBooks: number;
-}
+// interface IProps {
+//   booksPage: number;
+//   totalBooks: any;
+// }
 
-export const Pagination = ({ booksPage, totalBooks }: IProps) => {
-  const { page = "" } = useParams();
+export const Pagination = () => {
+  // const pageNumber = [];
+  const { page = "", title = "" } = useParams();
   const navigate = useNavigate();
-  // const { books, total } = useAppSelector(getBooks);
+  const { books, total } = useAppSelector(getBooks);
 
-  const pageNumber = [];
-  for (let i = 1; i <= Math.ceil(totalBooks / booksPage); i++) {
-    pageNumber.push(i);
-  }
-  // const [books, setBooksPage] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [booksPage, setBookPage] = useState(10);
+  // for (let i = 1; i <= Math.ceil(totalBooks / booksPage); i++) {
+  //   pageNumber.push(i);
+  // }
 
   // useEffect(() => {
   //   const fetchBooks = async () => {
@@ -38,10 +40,6 @@ export const Pagination = ({ booksPage, totalBooks }: IProps) => {
   // }, []);
   // console.log(books);
 
-  // const indexOfLastBook = currentPage * booksPage;
-  // const indexOfFirstBook = indexOfLastBook - booksPage;
-  // const currentBook = books.slice(indexOfFirstBook, indexOfLastBook);
-
   const handleNextPage = () => {
     navigate(`/search/${title}/${Number(page) + 1}`);
   };
@@ -51,25 +49,39 @@ export const Pagination = ({ booksPage, totalBooks }: IProps) => {
     }
     navigate(`/search/${title}/${Number(page) - 1}`);
   };
+
+  const handleNextButton = () => {
+    navigate(`/search/${title}/${Number(page) + 1}`);
+    window.scrollTo(0, 0);
+  };
+
+  const handlePrevButton = () => {
+    if (+page > 1) {
+      navigate(`/search/${title}/${Number(page) - 1}`);
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
-    <>
+    <StyledPaginationContainer>
       <StyledPaginationButton type="button" onClick={handlePrevPage}>
-        <ArrowLeft />
+        <StyledArrowLeft />
         Prev
       </StyledPaginationButton>
-      <ul>
-        {pageNumber.map((number) => {
-          return (
-            <li>
-              <Link to={routes.SEARCH_BOOK_RESULT}>{number}</Link>
-            </li>
-          );
-        })}
-      </ul>
+
+      <Pages>
+        <PageRight onClick={handlePrevButton}>
+          {+page > 1 ? +page - 1 : ""}
+        </PageRight>
+        <CurrentPage>{page}</CurrentPage>
+        <PageRight onClick={handleNextButton}>
+          {total && +page < Math.ceil(+total) / 10 ? +page + 1 : +page + 1}
+        </PageRight>
+      </Pages>
       <StyledPaginationButton type="button" onClick={handleNextPage}>
         Next
-        <ArrowRight />
+        <StyledArrowRight />
       </StyledPaginationButton>
-    </>
+    </StyledPaginationContainer>
   );
 };

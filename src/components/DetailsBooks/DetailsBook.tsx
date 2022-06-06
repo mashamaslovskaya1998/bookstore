@@ -25,7 +25,6 @@ import {
   StyledImageBlock,
   StyledInfoContainer,
   StyledParams,
-  StyledPreviewBook,
   StyledPrice,
   StyledTab,
   StyledTabPanel,
@@ -86,6 +85,7 @@ export const DetailsBooks = () => {
       setNewBooks(books);
     });
   }, []);
+
   const handleFavorites = () => {
     dispatch(
       addFavorites({
@@ -147,7 +147,6 @@ export const DetailsBooks = () => {
                 <Heart />
               </HeartContainer>
             </StyledButtonContainer>
-            <StyledPreviewBook>Preview book</StyledPreviewBook>
           </StyledInfoContainer>
         </StyledBlock>
       </StyledDetails>

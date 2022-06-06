@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { bookAPI } from "../../services/bookService";
@@ -35,7 +35,7 @@ export const SearchBookResult = () => {
   const { title = "", page = "" } = useParams();
   const [searchResult, setSearchResult] = useState<ISearchBooksApi>();
 
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
   // const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [booksPage] = useState(10);
@@ -46,9 +46,15 @@ export const SearchBookResult = () => {
     });
   }, [title, page]);
 
-  const indexOfLastBook = currentPage * booksPage;
-  const indexOfFirstBook = indexOfLastBook - booksPage;
-  const currentBook = books.slice(indexOfFirstBook, indexOfLastBook);
+  // const indexOfLastBook = currentPage * booksPage;
+  // const indexOfFirstBook = indexOfLastBook - booksPage;
+  // const currentBook = searchResult?.books.slice(
+  //   indexOfFirstBook,
+  //   indexOfLastBook
+  // );
+
+  // const paginate = (pageNumber: SetStateAction<number>) =>
+  //   setCurrentPage(pageNumber);
   return (
     <div>
       <Title>Search Result</Title>
@@ -70,7 +76,7 @@ export const SearchBookResult = () => {
           );
         })}
       </StyledSearchBooks>
-      <Pagination booksPage={booksPage} totalBooks={books.length} />
+      <Pagination />
     </div>
   );
 };

@@ -121,16 +121,6 @@ export const StyledArrowDown = styled(ArrowDown)`
   margin-left: 5px;
   scroll-behavior: smooth;
 `;
-export const StyledPreviewBook = styled.div`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  display: flex;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  justify-content: center;
-`;
 
 export const StyledTabs = styled.div`
   display: grid;

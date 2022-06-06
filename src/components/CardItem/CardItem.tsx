@@ -2,7 +2,7 @@ import { Cancel } from "../../assets";
 import { routes } from "../../routes/routes";
 import { useAppDispatch } from "../../store/hooks/hook";
 import { removeCard } from "../../store/slices/cardReducer";
-import { IBook, ICartPage } from "../../types";
+import { IBook } from "../../types";
 import {
   HeartContainer,
   StyledBlock,
@@ -31,12 +31,7 @@ export const CardItem = ({ book }: IBookCardProps) => {
   // const handleButtonPlus = () => {
   //   setCount(count + 1);
   // };
-  const initialState: ICartPage = {
-    results: [],
-    vat: 0,
-    sumTotal: 0,
-    total: 0,
-  };
+
   return (
     <div>
       <StyledContainerCard>

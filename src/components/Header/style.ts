@@ -11,5 +11,6 @@ export const StyledHeader = styled.div`
 `;
 export const StyledLogo = styled.img`
   display: block;
+
   cursor: pointer;
 `;

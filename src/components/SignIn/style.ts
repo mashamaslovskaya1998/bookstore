@@ -79,7 +79,7 @@ export const StyledPasswordInput = styled.input`
   padding-left: 20px;
   padding-top: 11px;
   padding-bottom: 11px;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
   border: 1px solid rgb(231, 231, 231);
   &::placeholder {
     font-weight: 400;

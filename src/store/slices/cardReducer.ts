@@ -4,6 +4,7 @@ import { IBook, ICards } from "../../types";
 const initialState: ICards = {
   cards: [],
 };
+
 const cardsReducer = createSlice({
   name: "Cards",
   initialState,
