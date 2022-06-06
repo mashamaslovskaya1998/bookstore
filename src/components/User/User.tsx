@@ -1,4 +1,5 @@
 // import { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks/hook";
@@ -8,75 +9,48 @@ import {
   StyledForm,
   StyledInput,
   StyledLabel,
-  StyledPasswordInput,
   StyledTitleProfile,
-  StyledTitlePassword,
   StyledUser,
-  StyledUserButton,
   StyledButtonSave,
-  StyledButtonCancel,
+  StyledLabelContainer,
+  StyledButtonContainer,
+  Notification,
 } from "./style";
 
 export const UserComponent = () => {
   const dispatch = useDispatch();
   const { name, email } = useAppSelector(getUser);
   const { register, handleSubmit } = useForm();
+  const [isChange, setIsChange] = useState(false);
 
   const onSubmit = (data: any) => {
     dispatch(setUser(data.email));
     dispatch(setUserName(data.name));
+    setIsChange(true);
   };
   return (
     <div>
+      {isChange ? <Notification>Changes saved</Notification> : ""}
       <StyledTitleProfile>Profile</StyledTitleProfile>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledUser>
-          <label>
+          <StyledLabelContainer>
             <StyledLabel>Name</StyledLabel>
             <StyledInput placeholder={name} type="name" {...register("name")} />
-          </label>
-          <label>
+          </StyledLabelContainer>
+          <StyledLabelContainer>
             <StyledLabel>Email</StyledLabel>
             <StyledInput
               placeholder={email}
               type="email"
               {...register("email")}
             />
-          </label>
+          </StyledLabelContainer>
         </StyledUser>
-        <StyledTitlePassword>Password</StyledTitlePassword>
-        <StyledUser>
-          <label>
-            <StyledLabel>Password</StyledLabel>
-            <StyledInput
-              placeholder="Your password"
-              type="password"
-              {...register("password")}
-            />
-          </label>
-          <div></div>
-          <label>
-            <StyledLabel>New password</StyledLabel>
-            <StyledPasswordInput
-              placeholder="New password"
-              type="password"
-              {...register("password")}
-            />
-          </label>
-          <label>
-            <StyledLabel>Confirm password</StyledLabel>
-            <StyledPasswordInput
-              placeholder="Confirm password"
-              type="password"
-              {...register("password")}
-            />
-          </label>
-        </StyledUser>
-        <StyledUserButton>
-          <StyledButtonSave type="submit">Save changes</StyledButtonSave>
 
-          <StyledButtonCancel>Cancel</StyledButtonCancel>
-        </StyledUserButton>
+        <StyledButtonContainer>
+          <StyledButtonSave type="submit">Save changes</StyledButtonSave>
+        </StyledButtonContainer>
       </StyledForm>
     </div>
   );

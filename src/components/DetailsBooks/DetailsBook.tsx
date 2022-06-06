@@ -7,6 +7,7 @@ import { getFavorites } from "../../store/selector/favoriteSelector";
 import { addCards } from "../../store/slices/cardReducer";
 import { addFavorites } from "../../store/slices/favoritesReducer";
 import { IBookDetailsApi, INewBooksApi } from "../../types";
+import { BackButton } from "../BackButton/BackButton";
 import { Info } from "../Info/Info";
 import { SliderComponent } from "../Slider/Slider";
 
@@ -15,13 +16,10 @@ import {
   HeartContainer,
   StyledArrowDown,
   StyledAttribute,
-  StyledAttributeDescription,
   StyledAttributeDetails,
   StyledBlock,
-  StyledBlockButtons,
   StyledButton,
   StyledButtonContainer,
-  StyledDescriptionButtons,
   StyledDetails,
   StyledImage,
   StyledImageBlock,
@@ -29,6 +27,9 @@ import {
   StyledParams,
   StyledPreviewBook,
   StyledPrice,
+  StyledTab,
+  StyledTabPanel,
+  StyledTabs,
 } from "./style";
 
 export const DetailsBooks = () => {
@@ -53,6 +54,7 @@ export const DetailsBooks = () => {
     url: "",
     year: "",
   };
+  const [active, setActive] = useState<string>("description");
 
   const favorites = useAppSelector(getFavorites);
   const dispatch = useAppDispatch();
@@ -72,6 +74,12 @@ export const DetailsBooks = () => {
     error: "",
     total: "",
   });
+  const handleDescription = () => {
+    setActive("description");
+  };
+  const handleAuthors = () => {
+    setActive("authors");
+  };
 
   useEffect(() => {
     bookAPI.getNewBooks().then((books) => {
@@ -103,7 +111,8 @@ export const DetailsBooks = () => {
     );
   };
   return (
-    <div>
+    <>
+      <BackButton />
       <Title> {detailsBook?.title ? detailsBook.title : "No Title"}</Title>
       <StyledDetails>
         <StyledImageBlock>
@@ -128,7 +137,9 @@ export const DetailsBooks = () => {
             <StyledAttribute>{detailsBook?.pages}</StyledAttribute>
             <StyledAttributeDetails>
               More details
-              <StyledArrowDown />
+              <button>
+                <StyledArrowDown />
+              </button>
             </StyledAttributeDetails>
             <StyledButtonContainer>
               <StyledButton onClick={handleCards}>Add to chart</StyledButton>
@@ -140,18 +151,29 @@ export const DetailsBooks = () => {
           </StyledInfoContainer>
         </StyledBlock>
       </StyledDetails>
-      <StyledBlockButtons>
-        <StyledDescriptionButtons>Description</StyledDescriptionButtons>
-        <StyledDescriptionButtons>Author</StyledDescriptionButtons>
-        <StyledDescriptionButtons>Reviews</StyledDescriptionButtons>
-      </StyledBlockButtons>
-      <StyledAttributeDescription>
-        {detailsBook?.desc}
-      </StyledAttributeDescription>
+      <StyledTabs>
+        <StyledTab
+          isActive={active === "description"}
+          onClick={handleDescription}
+        >
+          Description
+        </StyledTab>
+        <StyledTab isActive={active === "authors"} onClick={handleAuthors}>
+          Author
+        </StyledTab>
+      </StyledTabs>
+      <StyledTabPanel>
+        {active === "description"
+          ? detailsBook.desc
+          : active === "authors"
+          ? detailsBook.authors
+          : "Not Found"}
+      </StyledTabPanel>
+
       <Info />
       <div>
         <SliderComponent books={newBooks.books} />
       </div>
-    </div>
+    </>
   );
 };

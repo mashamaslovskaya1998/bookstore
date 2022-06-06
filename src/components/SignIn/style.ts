@@ -18,6 +18,27 @@ export const StyledTitle = styled.div`
   padding: 26px 0 22px 0;
   text-align: center;
 `;
+export const Form = styled.form`
+  padding: 40px 32px;
+  border-top: 1px solid rgb(231, 231, 231);
+`;
+
+export const ErrorMessage = styled.div`
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  color: rgb(255, 0, 0);
+  background-color: rgb(241, 218, 196);
+`;
+
+export const Notification = styled(ErrorMessage)`
+  color: rgb(0, 0, 0);
+`;
 export const StyledButton = styled.button`
   max-width: 480px;
   width: 100%;

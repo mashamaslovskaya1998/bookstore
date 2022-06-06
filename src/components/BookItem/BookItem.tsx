@@ -4,6 +4,7 @@ import {
   StyledImage,
   StyledImageBlock,
   StyledLink,
+  StyledMainBlock,
   StyledPrice,
   StyledSubtitle,
   StyledText,
@@ -15,20 +16,25 @@ interface IBookItemProps {
 }
 export const BookItem = ({ book }: IBookItemProps) => {
   return (
-    <div>
+    <StyledMainBlock>
       <StyledLink to={`/books/${book.isbn13}`}>
         <StyledImageBlock>
           <StyledImage src={book.image} alt={book.title} />
         </StyledImageBlock>
         <StyledBlock>
-          <StyledTitle>{book.title}</StyledTitle>
-          <StyledText>{book.isbn13}</StyledText>
-          <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+          <StyledTitle>{book.title ? book.title : "No title"}</StyledTitle>
+          <StyledText>
+            Isbn №:
+            {book.isbn13 ? book.isbn13 : "No isbn"}
+          </StyledText>
+          <StyledSubtitle>
+            {book.subtitle ? book.subtitle : "No subtitle"}
+          </StyledSubtitle>
           <StyledPrice>
             {book.price === "$0.00" ? "Free" : book.price}
           </StyledPrice>
         </StyledBlock>
       </StyledLink>
-    </div>
+    </StyledMainBlock>
   );
 };

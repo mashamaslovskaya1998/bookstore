@@ -2,7 +2,7 @@ import { Cancel } from "../../assets";
 import { routes } from "../../routes/routes";
 import { useAppDispatch } from "../../store/hooks/hook";
 import { removeCard } from "../../store/slices/cardReducer";
-import { IBook } from "../../types";
+import { IBook, ICartPage } from "../../types";
 import {
   HeartContainer,
   StyledBlock,
@@ -31,25 +31,32 @@ export const CardItem = ({ book }: IBookCardProps) => {
   // const handleButtonPlus = () => {
   //   setCount(count + 1);
   // };
+  const initialState: ICartPage = {
+    results: [],
+    vat: 0,
+    sumTotal: 0,
+    total: 0,
+  };
   return (
-    <StyledContainerCard>
-      <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
-        <StyledImageBlock>
-          <StyledImage src={book.image} alt={book.title} />
-        </StyledImageBlock>
-        <StyledBlock>
-          <StyledTitle>{book.title}</StyledTitle>
-          <StyledSubtitle>{book.subtitle}</StyledSubtitle>
-        </StyledBlock>
-      </StyledLink>
+    <div>
+      <StyledContainerCard>
+        <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
+          <StyledImageBlock>
+            <StyledImage src={book.image} alt={book.title} />
+          </StyledImageBlock>
+          <StyledBlock>
+            <StyledTitle>{book.title}</StyledTitle>
+            <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+          </StyledBlock>
+        </StyledLink>
 
-      <StyledBlock>
-        <StyledPrice>{book.price}</StyledPrice>
-      </StyledBlock>
-      <HeartContainer type="button" onClick={() => handleRemoveCard(book)}>
-        <Cancel />
-      </HeartContainer>
-      {/* <StyledCountContainer>
+        <StyledBlock>
+          <StyledPrice>{book.price}</StyledPrice>
+        </StyledBlock>
+        <HeartContainer type="button" onClick={() => handleRemoveCard(book)}>
+          <Cancel />
+        </HeartContainer>
+        {/* <StyledCountContainer>
         <StyledCountButton type="button" onClick={() => handleButtonMin}>
           -
         </StyledCountButton>
@@ -58,6 +65,13 @@ export const CardItem = ({ book }: IBookCardProps) => {
           +
         </StyledCountButton>
       </StyledCountContainer> */}
-    </StyledContainerCard>
+      </StyledContainerCard>
+      <div>
+        <p>Sum total</p>
+        <p>VAT</p>
+        <h3>Total: </h3>
+        <button>Check out</button>
+      </div>
+    </div>
   );
 };

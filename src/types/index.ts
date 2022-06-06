@@ -11,6 +11,12 @@ export interface INewBooksApi {
   error: string;
   total: string;
 }
+export interface INewBooks {
+  books: IBook[];
+  error: any;
+  total: string;
+  status: RequestStatusType;
+}
 export interface IBookDetailsApi {
   authors: string;
   desc: string;
@@ -55,4 +61,20 @@ export interface IBooks {
   totalResults: number;
   currentPage?: number;
   totalPages: number;
+}
+export interface ICart {
+  image: string;
+  title: string;
+  authors: string;
+  year: string;
+  price: string;
+  isbn13: string;
+  quantity: number;
+  totalPrice: string;
+}
+export interface ICartPage {
+  results: ICart[];
+  vat: number;
+  sumTotal: number;
+  total: number;
 }

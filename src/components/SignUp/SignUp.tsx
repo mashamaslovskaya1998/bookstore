@@ -1,4 +1,5 @@
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { useState } from "react";
 
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -14,20 +15,28 @@ import {
   StyledPasswordInput,
   StyledSignUp,
   StyledTitle,
+  Notification,
+  ErrorMessage,
 } from "./style";
 
 export const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const [isSignUpError, setIsSignUpError] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const onSubmit = (data: any) => {
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         dispatch(setUser(userCredential.user.email));
         navigate(routes.NEWBOOK);
+        setIsSignUp(true);
       })
-      .catch(console.error);
+      .catch((error) => {
+        const errorMessage = error.message;
+        setIsSignUpError(true);
+      });
   };
 
   return (
@@ -67,7 +76,13 @@ export const SignUp = () => {
               {...register("password")}
             />
           </label>
-          <StyledButton type="submit">Sign in</StyledButton>
+
+          {isSignUpError ? (
+            <ErrorMessage>Please, fill in all the fields.</ErrorMessage>
+          ) : (
+            ""
+          )}
+          <StyledButton type="submit">Sign up</StyledButton>
         </StyledForm>
       </StyledSignUp>
     </StyledContainer>

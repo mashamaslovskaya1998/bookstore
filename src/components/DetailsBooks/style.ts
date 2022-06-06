@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { ArrowDown } from "../../assets";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
+interface IButton {
+  isActive: boolean;
+}
 
 export const StyledDetails = styled.ul`
   display: grid;
@@ -116,6 +119,7 @@ export const StyledDescriptionButtons = styled.button`
 `;
 export const StyledArrowDown = styled(ArrowDown)`
   margin-left: 5px;
+  scroll-behavior: smooth;
 `;
 export const StyledPreviewBook = styled.div`
   font-weight: 400;
@@ -126,4 +130,34 @@ export const StyledPreviewBook = styled.div`
   grid-column-start: 1;
   grid-column-end: 3;
   justify-content: center;
+`;
+
+export const StyledTabs = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  border-bottom: 1px rgb(231, 231, 231) solid;
+  margin-bottom: 48px;
+`;
+
+export const StyledTab = styled.button<IButton>`
+  padding: 0 40px 24px;
+  background-color: ${Colors.BG_WHITE};
+  border: none;
+
+  color: ${Colors.PRIMARY};
+  cursor: pointer;
+
+  border-bottom: ${({ isActive }) =>
+    isActive ? "1px solid rgb(13, 12, 29)" : ""};
+  cursor: pointer;
+`;
+
+export const StyledTabPanel = styled.div`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+
+  color: ${Colors.PRIMARY};
+  margin-bottom: 48px;
 `;

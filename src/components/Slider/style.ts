@@ -12,7 +12,7 @@ export const CustomSlide = styled.div`
   /* margin-bottom: 40px; */
   padding: 0 20px;
   display: block;
-  max-width: 500px;
+  max-width: 330px;
   width: 100%;
 
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;

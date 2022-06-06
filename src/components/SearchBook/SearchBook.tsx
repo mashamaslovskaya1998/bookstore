@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "../../assets";
+import { useParams } from "react-router-dom";
+
 import { bookAPI } from "../../services/bookService";
-import { IBooks, ISearchBooksApi } from "../../types";
+import { ISearchBooksApi } from "../../types";
+import { Pagination } from "../Pagination/Pagination";
 import { Title } from "../Title/Title";
 import {
   StyledImage,
   StyledIsbn,
   StyledLink,
-  StyledPaginationButton,
-  StyledPaginationContainer,
   StyledPrice,
   StyledSearchBooks,
   StyledSubtitle,
@@ -18,13 +17,13 @@ import {
 } from "./style";
 
 export const SearchBookResult = () => {
-  const initialBooks: IBooks = {
-    response: null,
-    results: [],
-    totalResults: 0,
-    currentPage: 1,
-    totalPages: 0,
-  };
+  // const initialBooks: IBooks = {
+  //   response: null,
+  //   results: [],
+  //   totalResults: 0,
+  //   currentPage: 1,
+  //   totalPages: 0,
+  // };
 
   // const defaultRequestParams : ISearchBooksApi ={
   //   books: "JavaScript",
@@ -32,29 +31,24 @@ export const SearchBookResult = () => {
   // total: "",
   // page: 1
   // }
+
   const { title = "", page = "" } = useParams();
   const [searchResult, setSearchResult] = useState<ISearchBooksApi>();
-  const navigate = useNavigate();
 
-  // const[books, setBooks] = useState([])
-  // const [loading, setLoading] = useState(false)
-  // const [currentPage, setCurrentPage] = useState(1)
-  // const [booksPage] =useState(10)
+  const [books, setBooks] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [booksPage] = useState(10);
 
-  const handleNextPage = () => {
-    navigate(`/search/${title}/${Number(page) + 1}`);
-  };
-  const handlePrevPage = () => {
-    if (Number(page) === 1) {
-      return;
-    }
-    navigate(`/search/${title}/${Number(page) - 1}`);
-  };
   useEffect(() => {
     bookAPI.getBooksBySearch(title, page).then((books) => {
       setSearchResult(books);
     });
   }, [title, page]);
+
+  const indexOfLastBook = currentPage * booksPage;
+  const indexOfFirstBook = indexOfLastBook - booksPage;
+  const currentBook = books.slice(indexOfFirstBook, indexOfLastBook);
   return (
     <div>
       <Title>Search Result</Title>
@@ -76,27 +70,7 @@ export const SearchBookResult = () => {
           );
         })}
       </StyledSearchBooks>
-      <StyledPaginationContainer>
-        <div>
-          <StyledPaginationButton type="button" onClick={handlePrevPage}>
-            <ArrowLeft />
-            Prev
-          </StyledPaginationButton>
-          {/* {Array.from({ length: BookList.totalPages }).map((_, i) => { */}
-          return (
-          <div>
-            <button>{/* {i + 1} */}</button>
-          </div>
-          );
-          {/* })} */}
-        </div>
-        <div>
-          <StyledPaginationButton type="button" onClick={handleNextPage}>
-            Next
-            <ArrowRight />
-          </StyledPaginationButton>
-        </div>
-      </StyledPaginationContainer>
+      <Pagination booksPage={booksPage} totalBooks={books.length} />
     </div>
   );
 };

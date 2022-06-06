@@ -3,6 +3,11 @@ import styled from "styled-components";
 import { Colors } from "../../ui/colors";
 import { typography } from "../../ui/typography";
 
+export const StyledMainBlock = styled.li`
+  /* max-width: 352px;
+  width: 100%;
+  margin: 0 auto; */
+`;
 export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
