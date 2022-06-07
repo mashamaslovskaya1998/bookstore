@@ -15,7 +15,7 @@ interface IBookItemProps {
 export const BookItem = ({ book }: IBookItemProps) => {
   return (
     <StyledMainBlock>
-      <StyledLink to={`/books/${book.isbn13}`}>
+      <StyledLink to={`/bookstore/books/${book.isbn13}`}>
         <StyledImage src={book.image} alt={book.title} />
         <StyledTitle>{book.title ? book.title : "No title"}</StyledTitle>
         <StyledText>

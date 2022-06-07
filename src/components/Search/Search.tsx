@@ -7,7 +7,7 @@ export const Search = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data: any) => {
-    navigate(`/search/${data.title}/1`);
+    navigate(`/bookstore/search/${data.title}/1`);
   };
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>

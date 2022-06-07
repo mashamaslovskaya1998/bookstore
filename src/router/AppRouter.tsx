@@ -16,7 +16,7 @@ import { routes } from "../routes/routes";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainTemplate />}>
+      <Route path="/bookstore" element={<MainTemplate />}>
         {/* <Route index element={<Home />} /> */}
         <Route path={routes.NEWBOOK} element={<NewBook />} />
         <Route path={routes.SEARCH} element={<Search />} />
