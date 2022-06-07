@@ -10,11 +10,13 @@ export const StyledContainerCard = styled.div`
   width: 100%; */
   /* margin: 0 auto; */
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 1fr 56px;
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
   grid-gap: 32px;
+  justify-items: center;
+  align-items: center;
 
   cursor: pointer;
 `;
@@ -35,9 +37,9 @@ export const StyledLink = styled(Link)`
 // `;
 
 export const DescriptionBlock = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-rows: repeat(3 1fr);
-  grid-gap: 10px;
+  grid-gap: 10px; */
 `;
 export const StyledImage = styled.img`
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
@@ -96,15 +98,18 @@ export const Count = styled.p`
   line-height: 32px;
 `;
 export const AmountContainer = styled.div`
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 120px;
-  margin: auto 10px 0; */
+  margin: auto 10px 0;
+  border: none;
 `;
 export const Button = styled.button`
   width: 24px;
   height: 24px;
+  border: none;
+  background-color: ${Colors.BG_WHITE};
   cursor: pointer;
   &:hover {
     path {
