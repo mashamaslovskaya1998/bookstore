@@ -19,9 +19,12 @@ export const StyledInfoInformation = styled.p`
   color: ${Colors.PRIMARY};
   margin-bottom: 32px;
 `;
+export const StyledButton = styled.button`
+  display: grid;
+  border: none;
+  grid-template-columns: 5fr 1fr;
+`;
 export const StyledInfoInput = styled.input`
-  max-width: 766px;
-  width: 100%;
   padding: 16px 24px;
   border: none;
 `;

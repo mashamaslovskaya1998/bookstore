@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import {
+  StyledButton,
   StyledInfo,
   StyledInfoBlock,
   StyledInfoButton,
@@ -20,13 +21,13 @@ export const Info = () => {
         Be the first to know about new IT books, upcoming releases, exclusive
         offers and more.
       </StyledInfoInformation>
-      <div>
+      <StyledButton>
         <StyledInfoInput
           placeholder="Your name"
           {...register("email", { required: true })}
         ></StyledInfoInput>
         <StyledInfoButton>Subscribe</StyledInfoButton>
-      </div>
+      </StyledButton>
     </StyledInfoBlock>
   );
 };

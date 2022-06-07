@@ -14,7 +14,6 @@ export const StyledPaginationButton = styled.button`
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  /* margin: 0 8px; */
   cursor: pointer;
 `;
 export const StyledArrowLeft = styled(ArrowLeft)`
