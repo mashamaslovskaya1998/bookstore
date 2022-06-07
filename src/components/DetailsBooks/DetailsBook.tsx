@@ -7,8 +7,6 @@ import { addFavorites } from "../../store/slices/userReducer";
 import { IBookDetailsApi } from "../../types";
 import { Info } from "../Info/Info";
 import { v4 as uuidv4 } from "uuid";
-import { SliderComponent } from "../Slider/Slider";
-// import { SliderComponent } from "../Slider/Slider";
 
 import { Title } from "../Title/Title";
 import {
@@ -18,6 +16,7 @@ import {
   StyledAttribute,
   StyledAttributeDetails,
   StyledBlock,
+  StyledBtnScroll,
   StyledButton,
   StyledButtonContainer,
   StyledDetails,
@@ -116,9 +115,9 @@ export const DetailsBooks = ({ book }: IProps) => {
             <StyledAttributeDetails>
               <Link to="details" duration={500} smooth={true}>
                 More detailse
-                <button>
+                <StyledBtnScroll>
                   <StyledArrowDown />
-                </button>
+                </StyledBtnScroll>
               </Link>
             </StyledAttributeDetails>
             <StyledButtonContainer>
@@ -150,7 +149,6 @@ export const DetailsBooks = ({ book }: IProps) => {
       </StyledTabPanel>
 
       <Info />
-      {/* <SliderComponent /> */}
     </>
   );
 };

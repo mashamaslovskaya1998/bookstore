@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks/hook";
 import { getBooks, getBooksStatus } from "../store/selector/booksSelector";
 import { fetchBookDetails } from "../store/slices/bookReducer";
 import { DetailsBooks } from "../components/DetailsBooks/DetailsBook";
+// import { SliderComponent } from "../components/Slider/Slider";
 
 export const DetailsBook = () => {
   const { id = "" } = useParams();
@@ -31,6 +32,7 @@ export const DetailsBook = () => {
     <>
       <BackButton />
       <DetailsBooks book={result} />
+      {/* <SliderComponent /> */}
     </>
   );
 };

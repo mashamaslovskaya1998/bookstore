@@ -1,22 +1,39 @@
 import styled from "styled-components";
 import { ArrowDown } from "../../assets";
 import { Colors } from "../../ui/colors";
+import { media } from "../../ui/media";
 import { typography } from "../../ui/typography";
 interface IButton {
   isActive: boolean;
 }
 
 export const StyledDetails = styled.ul`
+  /* display: flex;
+  justify-content: space-between; */
+  margin-bottom: 72px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 128px;
   margin-bottom: 72px;
+  ${media.MD} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const StyledImageBlock = styled.div`
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   position: relative;
+  ${media.MD} {
+    ${media.MD} {
+      margin: 130px 0 48px;
+
+      -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+      -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    }
+  }
 `;
 export const StyledImage = styled.img`
   position: absolute;
@@ -84,6 +101,11 @@ export const StyledButton = styled.button`
   padding: 13px;
   border-radius: 5px;
   cursor: pointer;
+  ${media.MD} {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 6;
+  }
 `;
 export const HeartContainer = styled.div`
   grid-column-start: 2;
@@ -97,6 +119,11 @@ export const HeartContainer = styled.div`
   border: 1px solid ${Colors.PRIMARY};
   border-radius: 5px;
   cursor: pointer;
+  ${media.MD} {
+    display: grid;
+    grid-column-start: 6;
+    grid-column-end: 7;
+  }
 `;
 export const StyledBlockButtons = styled.div`
   display: grid;
@@ -153,4 +180,8 @@ export const StyledTabPanel = styled.div`
 `;
 export const BookRating = styled.div`
   margin-right: 20px;
+`;
+export const StyledBtnScroll = styled.button`
+  border: none;
+  background-color: ${Colors.BG_WHITE};
 `;
