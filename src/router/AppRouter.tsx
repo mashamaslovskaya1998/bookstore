@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import { MainTemplate } from "../components/MainTemplate/MainTemplate";
 import { Search } from "../components/Search/Search";
-import { DetailsBooks } from "../components/DetailsBooks/DetailsBook";
+import { DetailsBook } from "../pages/DetailsBook";
 import { Cards } from "../pages/Cards";
 import { FavoritesBook } from "../pages/FavoritesBook";
 import Login from "../pages/SignIn";
@@ -24,7 +24,7 @@ export const AppRouter = () => {
           path={routes.SEARCH_BOOK_RESULT}
           element={<SearchBookResult />}
         />
-        <Route path={routes.DETAILS_BOOK} element={<DetailsBooks />} />
+        <Route path={routes.DETAILS_BOOK} element={<DetailsBook />} />
         <Route path={routes.FAVORITE_BOOK} element={<FavoritesBook />} />
         <Route path={routes.CARD} element={<Cards />} />
         <Route path={routes.USER} element={<User />} />

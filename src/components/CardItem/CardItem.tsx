@@ -1,14 +1,20 @@
-import { Cancel } from "../../assets";
+import { Cancel, Minus, Plus } from "../../assets";
 import { routes } from "../../routes/routes";
 import { useAppDispatch } from "../../store/hooks/hook";
-import { removeCard } from "../../store/slices/cardReducer";
-import { IBook } from "../../types";
 import {
+  decreaseAmount,
+  increaseAmount,
+  removeCard,
+} from "../../store/slices/cardReducer";
+import { IBookCard } from "../../types";
+import {
+  AmountContainer,
+  Button,
+  Count,
+  DescriptionBlock,
   HeartContainer,
-  StyledBlock,
   StyledContainerCard,
   StyledImage,
-  StyledImageBlock,
   StyledLink,
   StyledPrice,
   StyledSubtitle,
@@ -16,57 +22,51 @@ import {
 } from "./style";
 
 interface IBookCardProps {
-  book: IBook;
+  book: IBookCard;
 }
 
 export const CardItem = ({ book }: IBookCardProps) => {
   const dispatch = useAppDispatch();
-  const handleRemoveCard = (book: IBook) => {
+  const handleRemoveCard = (book: IBookCard) => {
     dispatch(removeCard(book));
   };
-  // const [count, setCount] = useState(1);
-  // const handleButtonMin = () => {
-  //   setCount(count - 1);
-  // };
-  // const handleButtonPlus = () => {
-  //   setCount(count + 1);
-  // };
+  const handlePlus = (book: IBookCard) => {
+    dispatch(increaseAmount(book));
+  };
+
+  const handleMinus = (book: IBookCard) => {
+    if (book.amount > 1) {
+      dispatch(decreaseAmount(book));
+    }
+  };
 
   return (
-    <div>
+    <>
       <StyledContainerCard>
         <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
-          <StyledImageBlock>
-            <StyledImage src={book.image} alt={book.title} />
-          </StyledImageBlock>
-          <StyledBlock>
+          <StyledImage src={book.image} alt={book.title} />
+        </StyledLink>
+        <DescriptionBlock>
+          <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
             <StyledTitle>{book.title}</StyledTitle>
             <StyledSubtitle>{book.subtitle}</StyledSubtitle>
-          </StyledBlock>
-        </StyledLink>
+          </StyledLink>
+          <AmountContainer>
+            <Button>
+              <Minus onClick={() => handleMinus(book)} />
+            </Button>
+            <Count>{book.amount}</Count>
+            <Button>
+              <Plus onClick={() => handlePlus(book)} />
+            </Button>
+          </AmountContainer>
+        </DescriptionBlock>
+        <StyledPrice>{book.price}</StyledPrice>
 
-        <StyledBlock>
-          <StyledPrice>{book.price}</StyledPrice>
-        </StyledBlock>
         <HeartContainer type="button" onClick={() => handleRemoveCard(book)}>
           <Cancel />
         </HeartContainer>
-        {/* <StyledCountContainer>
-        <StyledCountButton type="button" onClick={() => handleButtonMin}>
-          -
-        </StyledCountButton>
-
-        <StyledCountButton type="button" onClick={() => handleButtonPlus}>
-          +
-        </StyledCountButton>
-      </StyledCountContainer> */}
       </StyledContainerCard>
-      <div>
-        <p>Sum total</p>
-        <p>VAT</p>
-        <h3>Total: </h3>
-        <button>Check out</button>
-      </div>
-    </div>
+    </>
   );
 };

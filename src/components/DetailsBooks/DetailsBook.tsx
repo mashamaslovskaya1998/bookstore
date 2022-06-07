@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Heart } from "../../assets";
-import { bookAPI } from "../../services/bookService";
-import { useAppDispatch, useAppSelector } from "../../store/hooks/hook";
-import { getFavorites } from "../../store/selector/favoriteSelector";
+import { ReactNode, useEffect, useId, useState } from "react";
+import { Link } from "react-scroll";
+import { Heart, StarBlack, StarLight } from "../../assets";
+import { useAppDispatch } from "../../store/hooks/hook";
 import { addCards } from "../../store/slices/cardReducer";
-import { addFavorites } from "../../store/slices/favoritesReducer";
-import { IBookDetailsApi, INewBooksApi } from "../../types";
-import { BackButton } from "../BackButton/BackButton";
+import { addFavorites } from "../../store/slices/userReducer";
+import { IBookDetailsApi } from "../../types";
 import { Info } from "../Info/Info";
+import { v4 as uuidv4 } from "uuid";
 import { SliderComponent } from "../Slider/Slider";
+// import { SliderComponent } from "../Slider/Slider";
 
 import { Title } from "../Title/Title";
 import {
+  BookRating,
   HeartContainer,
   StyledArrowDown,
   StyledAttribute,
@@ -31,48 +31,48 @@ import {
   StyledTabs,
 } from "./style";
 
-export const DetailsBooks = () => {
+interface IProps {
+  book: IBookDetailsApi;
+}
+
+export const DetailsBooks = ({ book }: IProps) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-  const initialBookDetails: IBookDetailsApi = {
-    authors: "",
-    desc: "",
-    error: "",
-    image: "",
-    isbn10: "",
-    isbn13: "",
-    language: "",
-    pages: "",
-    pdf: {},
-    price: "",
-    publisher: "",
-    rating: "",
-    subtitle: "",
-    title: "",
-    url: "",
-    year: "",
+  const id = useId();
+  const drawRating = (rating: string): ReactNode[] => {
+    const stars = [];
+    let id = {};
+    for (let i = 0; i <= 4; i++) {
+      id = uuidv4();
+      if (i < +rating) {
+        stars.push(<StarBlack key={`${id}`} />);
+      } else {
+        stars.push(<StarLight key={`${id}`} />);
+      }
+    }
+    return stars;
   };
+
   const [active, setActive] = useState<string>("description");
 
-  const favorites = useAppSelector(getFavorites);
+  // const id = useId();
   const dispatch = useAppDispatch();
 
-  const { id = "" } = useParams();
-  const [detailsBook, setDetailsBook] =
-    useState<IBookDetailsApi>(initialBookDetails);
+  const keys: string[] = Object.keys(book);
+  const forbidenKeys: string[] = [
+    "desc",
+    "error",
+    "image",
+    "isbn10",
+    "isbn13",
+    "pdf",
+    "url",
+  ];
+  const filteredKeys = keys.filter((el) => !forbidenKeys.includes(el));
 
-  useEffect(() => {
-    bookAPI.getBookDetails(id).then((book) => {
-      setDetailsBook(book);
-    });
-  }, [id]);
+  const newArr = Object.assign(book);
 
-  const [newBooks, setNewBooks] = useState<INewBooksApi>({
-    books: [],
-    error: "",
-    total: "",
-  });
   const handleDescription = () => {
     setActive("description");
   };
@@ -80,66 +80,46 @@ export const DetailsBooks = () => {
     setActive("authors");
   };
 
-  useEffect(() => {
-    bookAPI.getNewBooks().then((books) => {
-      setNewBooks(books);
-    });
-  }, []);
-
   const handleFavorites = () => {
-    dispatch(
-      addFavorites({
-        title: detailsBook?.title,
-        subtitle: detailsBook?.subtitle,
-        price: detailsBook?.price,
-        image: detailsBook?.image,
-        isbn13: detailsBook?.isbn13,
-        url: detailsBook?.url,
-      })
-    );
+    dispatch(addFavorites(book));
   };
   const handleCards = () => {
     dispatch(
       addCards({
-        title: detailsBook?.title,
-        subtitle: detailsBook?.subtitle,
-        price: detailsBook?.price,
-        image: detailsBook?.image,
-        isbn13: detailsBook?.isbn13,
-        url: detailsBook?.url,
+        ...book,
+        amount: 1,
       })
     );
   };
   return (
     <>
-      <BackButton />
-      <Title> {detailsBook?.title ? detailsBook.title : "No Title"}</Title>
+      <Title> {book.title ? book.title : "No Title"}</Title>
       <StyledDetails>
         <StyledImageBlock>
-          <StyledImage
-            src={detailsBook?.image}
-            alt={detailsBook?.title}
-          ></StyledImage>
+          <StyledImage src={book.image} alt={book.title}></StyledImage>
         </StyledImageBlock>
 
         <StyledBlock>
           <StyledPrice>
-            {detailsBook?.price === "$0.00" ? "Free" : detailsBook?.price}
+            {book.price === "$0.00" ? "Free" : book.price}
           </StyledPrice>
+          <BookRating>{drawRating(`${book.rating}`)}</BookRating>
           <StyledInfoContainer>
             <StyledParams>Author</StyledParams>
-            <StyledAttribute>{detailsBook?.authors}</StyledAttribute>
+            <StyledAttribute>{book.authors}</StyledAttribute>
             <StyledParams>Publisher</StyledParams>
-            <StyledAttribute>{detailsBook?.publisher}</StyledAttribute>
+            <StyledAttribute>{book.publisher}</StyledAttribute>
             <StyledParams>Language</StyledParams>
-            <StyledAttribute>{detailsBook?.language}</StyledAttribute>
+            <StyledAttribute>{book.language}</StyledAttribute>
             <StyledParams>Pages</StyledParams>
-            <StyledAttribute>{detailsBook?.pages}</StyledAttribute>
+            <StyledAttribute>{book.pages}</StyledAttribute>
             <StyledAttributeDetails>
-              More details
-              <button>
-                <StyledArrowDown />
-              </button>
+              <Link to="details" duration={500} smooth={true}>
+                More detailse
+                <button>
+                  <StyledArrowDown />
+                </button>
+              </Link>
             </StyledAttributeDetails>
             <StyledButtonContainer>
               <StyledButton onClick={handleCards}>Add to chart</StyledButton>
@@ -150,7 +130,7 @@ export const DetailsBooks = () => {
           </StyledInfoContainer>
         </StyledBlock>
       </StyledDetails>
-      <StyledTabs>
+      <StyledTabs id="details">
         <StyledTab
           isActive={active === "description"}
           onClick={handleDescription}
@@ -163,16 +143,14 @@ export const DetailsBooks = () => {
       </StyledTabs>
       <StyledTabPanel>
         {active === "description"
-          ? detailsBook.desc
+          ? book.desc
           : active === "authors"
-          ? detailsBook.authors
+          ? book.authors
           : "Not Found"}
       </StyledTabPanel>
 
       <Info />
-      <div>
-        <SliderComponent books={newBooks.books} />
-      </div>
+      {/* <SliderComponent /> */}
     </>
   );
 };

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks/hook";
-import { getUser } from "../../store/selector/userReducer";
+import { getUser } from "../../store/selector/userSelector";
 import { setUser, setUserName } from "../../store/slices/userReducer";
 import {
   StyledForm,

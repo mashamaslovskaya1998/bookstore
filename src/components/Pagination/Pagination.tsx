@@ -4,7 +4,6 @@ import { getBooks } from "../../store/selector/booksSelector";
 
 import {
   CurrentPage,
-  Page,
   PageRight,
   Pages,
   StyledArrowLeft,
@@ -13,32 +12,10 @@ import {
   StyledPaginationContainer,
 } from "./style";
 
-// interface IProps {
-//   booksPage: number;
-//   totalBooks: any;
-// }
-
 export const Pagination = () => {
-  // const pageNumber = [];
   const { page = "", title = "" } = useParams();
   const navigate = useNavigate();
   const { books, total } = useAppSelector(getBooks);
-
-  // for (let i = 1; i <= Math.ceil(totalBooks / booksPage); i++) {
-  //   pageNumber.push(i);
-  // }
-
-  // useEffect(() => {
-  //   const fetchBooks = async () => {
-  //     setLoading(true);
-  //     const res = await axios.get("https://api.itbook.store/1.0/search");
-  //     setBooksPage(res.data);
-  //     setLoading(false);
-  //   };
-
-  //   fetchBooks();
-  // }, []);
-  // console.log(books);
 
   const handleNextPage = () => {
     navigate(`/search/${title}/${Number(page) + 1}`);

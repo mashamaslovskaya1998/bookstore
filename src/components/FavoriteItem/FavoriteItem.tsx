@@ -1,8 +1,8 @@
 import { Heart } from "../../assets";
 import { routes } from "../../routes/routes";
 import { useAppDispatch } from "../../store/hooks/hook";
-import { removeFavorites } from "../../store/slices/favoritesReducer";
-import { IBook } from "../../types";
+import { removeFavorites } from "../../store/slices/userReducer";
+import { IBook, IBookDetailsApi } from "../../types";
 import {
   HeartContainer,
   StyledBlock,
@@ -16,7 +16,7 @@ import {
 } from "./style";
 
 interface IBookItemProps {
-  book: IBook;
+  book: IBookDetailsApi;
 }
 
 export const FavoriteItem = ({ book }: IBookItemProps) => {

@@ -1,12 +1,13 @@
-import { useAppSelector } from "../../store/hooks/hook";
-import { getFavorites } from "../../store/selector/favoriteSelector";
+import { IBookDetailsApi } from "../../types";
 import { FavoriteItem } from "../FavoriteItem/FavoriteItem";
 
-export const FavoriteList = () => {
-  const { favorites } = useAppSelector(getFavorites);
+interface IProps {
+  books: IBookDetailsApi[];
+}
+export const FavoriteList = ({ books }: IProps) => {
   return (
     <div>
-      {favorites.map((book) => {
+      {books.map((book) => {
         return <FavoriteItem book={book}></FavoriteItem>;
       })}
     </div>

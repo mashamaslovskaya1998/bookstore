@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import Slider from "react-slick";
+import { useAppDispatch, useAppSelector } from "../../store/hooks/hook";
+import { getBooks } from "../../store/selector/booksSelector";
+import { fetchBooks } from "../../store/slices/bookReducer";
 import { IBook } from "../../types";
 import {
   CustomSlide,
-  SlideContainer,
-  SliderBlock,
   SliderMainTitle,
   SliderPrice,
   SliderSubtitle,
@@ -12,11 +14,14 @@ import {
   StyledLink,
 } from "./style";
 
-interface IProps {
-  books: IBook[];
-}
+export const SliderComponent = () => {
+  const { books } = useAppSelector(getBooks);
 
-export const SliderComponent = ({ books }: IProps) => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
   const settings = {
     dots: true,
     infinite: true,
@@ -26,6 +31,22 @@ export const SliderComponent = ({ books }: IProps) => {
     autoplay: true,
     autoplaySpeed: 3000,
     pauseOnHover: true,
+    // responsive: [
+    //   {
+    //     breakpoint: 1020,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 1,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 760,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //     },
+    //   },
+    // ],
   };
 
   return (
@@ -36,16 +57,17 @@ export const SliderComponent = ({ books }: IProps) => {
           return (
             <CustomSlide key={book.isbn13}>
               <StyledLink to={`/books/${book.isbn13}`}>
-                <SlideContainer>
-                  <StyledImageBlock src={book.image} alt={book.title} />
-                  <SliderBlock>
-                    <SliderTitle>{book.title}</SliderTitle>
-                    <SliderSubtitle>{book.subtitle}</SliderSubtitle>
-                    <SliderPrice>
-                      {book.price === "$0.00" ? "Free" : book.price}
-                    </SliderPrice>
-                  </SliderBlock>
-                </SlideContainer>
+                <StyledImageBlock src={book.image} alt={book.title} />
+
+                <SliderTitle>
+                  {book.title ? book.title : "No title"}
+                </SliderTitle>
+                <SliderSubtitle>
+                  {book.subtitle ? book.subtitle : "No subtitle"}
+                </SliderSubtitle>
+                <SliderPrice>
+                  {book.price === "$0.00" ? "Free" : book.price}
+                </SliderPrice>
               </StyledLink>
             </CustomSlide>
           );

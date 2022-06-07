@@ -43,6 +43,8 @@ export interface IUserStore {
   isAuth: boolean;
   email: string | undefined;
   name: string | undefined;
+  favorites: IBookDetailsApi[];
+  password: string | undefined;
 }
 
 export interface IFavorites {
@@ -50,7 +52,12 @@ export interface IFavorites {
 }
 
 export interface ICards {
-  cards: IBook[];
+  cards: IBookCard[];
+  total: number;
+  isLoading: boolean;
+}
+export interface IBookCard extends IBookDetailsApi {
+  amount: number;
 }
 
 export type RequestStatusType = "idle" | "loading" | "success" | "error";
@@ -77,4 +84,37 @@ export interface ICartPage {
   vat: number;
   sumTotal: number;
   total: number;
+}
+export interface ICartInfo {
+  image: string;
+  isbn13: string;
+  price: string;
+  subtitle: string;
+  title: string;
+  url: string;
+  year: string;
+  publisher: string;
+  rating: string;
+  authors: string;
+}
+export interface IBookCard extends IBookDetailsApi {
+  amount: number;
+}
+export interface IBookApi {
+  books: IBook[];
+  error: any;
+  status: RequestStatusType;
+  total: string;
+  result: IBookDetailsApi;
+}
+export interface IArguments {
+  title: string;
+  page: string;
+}
+
+export interface IresultBooksApi {
+  error: any;
+  page: string;
+  total: string;
+  books: IBook[];
 }

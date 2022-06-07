@@ -9,15 +9,10 @@ export const SliderMainTitle = styled.h2`
 `;
 
 export const CustomSlide = styled.div`
-  /* margin-bottom: 40px; */
   padding: 0 20px;
   display: block;
-  max-width: 330px;
+  max-width: 400px;
   width: 100%;
-
-  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
 
   cursor: pointer;
 `;
@@ -28,32 +23,30 @@ export const StyledImageBlock = styled.img`
   margin-right: auto;
 
   justify-content: center;
-  & {
-    transition: 0.6s;
-  }
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
-export const SlideContainer = styled.div`
-  /* margin-top: 0 auto; */
-  margin: 0 auto;
-  position: relative;
-`;
-export const SliderBlock = styled.div`
-  /* display: block;
-  justify-content: space-around; */
-  /* margin: 0 auto; */
-`;
+
 export const SliderTitle = styled.h3`
   ${typography.H3}
   color: ${Colors.PRIMARY};
   margin-bottom: 8px;
+  height: 65px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 export const SliderSubtitle = styled.h3`
   ${typography.B2}
   color: ${Colors.SECONDARY};
   margin-bottom: 40px;
+
+  height: 65px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const SliderPrice = styled.h3`
@@ -62,4 +55,18 @@ export const SliderPrice = styled.h3`
 `;
 export const StyledLink = styled(Link)`
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3px;
+  border-radius: 3px;
+  /* border: 1px solid black; */
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  & {
+    transition: 0.6s;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

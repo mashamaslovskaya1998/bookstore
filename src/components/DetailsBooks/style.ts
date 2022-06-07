@@ -151,3 +151,6 @@ export const StyledTabPanel = styled.div`
   color: ${Colors.PRIMARY};
   margin-bottom: 48px;
 `;
+export const BookRating = styled.div`
+  margin-right: 20px;
+`;

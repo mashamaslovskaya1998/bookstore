@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Colors } from "../../ui/colors";
+import { media } from "../../ui/media";
 
 export const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
+  ${media.MD} {
+    margin-bottom: 80px;
+  }
 `;
 
 export const StyledSignUp = styled.div`
@@ -18,6 +22,11 @@ export const StyledTitle = styled.div`
   line-height: 24px;
   padding: 26px 0 22px 0;
   text-align: center;
+  ${media.MD} {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 20px;
+  }
 `;
 export const StyledButton = styled.button`
   max-width: 480px;
