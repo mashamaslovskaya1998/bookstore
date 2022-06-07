@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.js": "/static/js/main.2952b5e4.js",
-    "static/media/logo.svg": "/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
-    "static/media/heart.svg": "/static/media/heart.28220c581538742fc7469c10d8a9e269.svg",
-    "static/media/cancel.svg": "/static/media/cancel.e1ed8d2746670531de6b56e1e1386589.svg",
-    "static/media/shopping-bag.svg": "/static/media/shopping-bag.291776166f59fef865d350aaa5d72385.svg",
-    "static/media/arrow-down.svg": "/static/media/arrow-down.8e4d525ccfcf6c02b15662397cf3b1ac.svg",
-    "static/media/search-picture.svg": "/static/media/search-picture.fb7c71339a4b264dfb3e9806f3b103eb.svg",
-    "static/media/user.svg": "/static/media/user.f95ce053779a6201d74bbfa54c39de4c.svg",
-    "index.html": "/index.html",
-    "main.2952b5e4.js.map": "/static/js/main.2952b5e4.js.map"
+    "main.js": "/bookstore/static/js/main.58d76e66.js",
+    "static/media/logo.svg": "/bookstore/static/media/logo.4df062493d3c8a2d9a244c508c206884.svg",
+    "static/media/arrow-right.svg": "/bookstore/static/media/arrow-right.51c65c8c1124838e24151f2435ee0960.svg",
+    "static/media/starBlack.svg": "/bookstore/static/media/starBlack.bd5a7cd05258f354bc0e7314cdcb6fa6.svg",
+    "static/media/starLight.svg": "/bookstore/static/media/starLight.cb5ca999ba94d51494952a0cef21eabb.svg",
+    "static/media/heart.svg": "/bookstore/static/media/heart.28220c581538742fc7469c10d8a9e269.svg",
+    "static/media/arrow-left.svg": "/bookstore/static/media/arrow-left.5fd96aa734d38c4adfd424db166219c1.svg",
+    "static/media/cancel.svg": "/bookstore/static/media/cancel.e1ed8d2746670531de6b56e1e1386589.svg",
+    "static/media/shopping-bag.svg": "/bookstore/static/media/shopping-bag.291776166f59fef865d350aaa5d72385.svg",
+    "static/media/arrow-down.svg": "/bookstore/static/media/arrow-down.8e4d525ccfcf6c02b15662397cf3b1ac.svg",
+    "index.html": "/bookstore/index.html",
+    "static/media/search-picture.svg": "/bookstore/static/media/search-picture.fb7c71339a4b264dfb3e9806f3b103eb.svg",
+    "static/media/user.svg": "/bookstore/static/media/user.f95ce053779a6201d74bbfa54c39de4c.svg",
+    "static/media/plus.svg": "/bookstore/static/media/plus.20a4951c1111c79be9a2b8623448f36c.svg",
+    "static/media/minus.svg": "/bookstore/static/media/minus.1822d4826ea2342c01928357d5435cdc.svg",
+    "main.58d76e66.js.map": "/bookstore/static/js/main.58d76e66.js.map"
   },
   "entrypoints": [
-    "static/js/main.2952b5e4.js"
+    "static/js/main.58d76e66.js"
   ]
 }
