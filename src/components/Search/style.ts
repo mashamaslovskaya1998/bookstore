@@ -19,6 +19,12 @@ export const StyledSearch = styled.input`
   background-color: ${Colors.BG_LIGHT};
   border: 1px solid ${Colors.BG_GREY};
   border: 1px solid rgb(231, 231, 231);
+
+  border-radius: 12px;
+  border-radius: 12px;
+  border-radius: 12px;
+  background: #f9f9fb;
+  box-shadow: -17px 17px 40px #dbdbdd, 17px -17px 40px #ffffff;
 `;
 export const StyledButton = styled.button`
   position: absolute;
@@ -28,6 +34,7 @@ export const StyledButton = styled.button`
   width: 100%;
   height: 24px;
   border: none;
+
   background-color: transparent;
 
   cursor: pointer;

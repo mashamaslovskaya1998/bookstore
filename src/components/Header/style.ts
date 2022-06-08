@@ -10,6 +10,7 @@ export const StyledHeader = styled.div`
   padding-top: 24px;
   padding-bottom: 24px;
   border-bottom: 1px rgb(231, 231, 231) solid;
+
   ${media.MD} {
   }
 `;

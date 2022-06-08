@@ -14,9 +14,11 @@ export const StyledLink = styled(Link)`
   flex-direction: column;
 
   padding: 3px 5px;
-  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  border-radius: 22px;
+  border-radius: 12px;
+  border-radius: 12px;
+  background: #f9f9fb;
+  box-shadow: -17px 17px 40px #dbdbdd, 17px -17px 40px #ffffff;
   & {
     transition: 0.6s;
   }

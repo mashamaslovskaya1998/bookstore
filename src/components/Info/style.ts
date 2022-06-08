@@ -5,6 +5,10 @@ import { typography } from "../../ui/typography";
 export const StyledInfoBlock = styled.div`
   background-color: ${Colors.TT_PURPLE};
   padding: 56px 64px;
+  border-radius: 12px;
+  border-radius: 12px;
+  background: #e6c7c7;
+  box-shadow: -17px 17px 40px #caafaf, 17px -17px 40px #ffdfdf;
 `;
 export const StyledInfo = styled.h2`
   text-transform: uppercase;

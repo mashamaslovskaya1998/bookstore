@@ -7,7 +7,7 @@ export enum routes {
   CARD = "/bookstore/card",
   USER = "/bookstore/user",
   SEARCH = "/bookstore/search",
-  NEWBOOK = "/bookstore/bookstore",
+  NEWBOOK = "/bookstore",
   DETAILS_BOOK = "/bookstore/books/:id",
   SEARCH_BOOK_RESULT = "/bookstore/search/:title/:page",
 }
