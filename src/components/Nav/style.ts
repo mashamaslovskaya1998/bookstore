@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Point } from "../../assets";
 import { media } from "../../ui/media";
 
 export const StyledNav = styled.div`
@@ -20,4 +21,12 @@ export const StyledImg = styled.img`
     width: 20px;
     height: 20px;
   }
+`;
+export const StyledCartCircle = styled.div`
+  position: relative;
+`;
+export const StyledPoint = styled(Point)`
+  position: absolute;
+  top: -13px;
+  right: 0px;
 `;

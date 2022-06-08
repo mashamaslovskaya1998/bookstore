@@ -11,6 +11,9 @@ import { ReactComponent as Plus } from "./plus.svg";
 import { ReactComponent as Minus } from "./minus.svg";
 import { ReactComponent as StarBlack } from "./starBlack.svg";
 import { ReactComponent as StarLight } from "./starLight.svg";
+import { ReactComponent as RedBag } from "./redBag.svg";
+import { ReactComponent as RedFavorites } from "./redFavorites.svg";
+import { ReactComponent as Point } from "./point.svg";
 export {
   Logo,
   Heart,
@@ -25,4 +28,7 @@ export {
   Minus,
   StarBlack,
   StarLight,
+  RedBag,
+  RedFavorites,
+  Point,
 };

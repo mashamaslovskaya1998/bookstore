@@ -15,6 +15,7 @@ import {
   HeartContainer,
   StyledContainerCard,
   StyledImage,
+  StyledImageBlock,
   StyledLink,
   StyledPrice,
   StyledSubtitle,
@@ -43,13 +44,17 @@ export const CardItem = ({ book }: IBookCardProps) => {
   return (
     <>
       <StyledContainerCard>
-        <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
-          <StyledImage src={book.image} alt={book.title} />
+        <StyledLink to={`/bookstore/books/${book.isbn13}`}>
+          <StyledImageBlock>
+            <StyledImage src={book.image} alt={book.title} />
+          </StyledImageBlock>
         </StyledLink>
         <DescriptionBlock>
-          <StyledLink to={`${routes.CARD}/${book.isbn13}`}>
-            <StyledTitle>{book.title}</StyledTitle>
-            <StyledSubtitle>{book.subtitle}</StyledSubtitle>
+          <StyledLink to={`/bookstore/books/${book.isbn13}`}>
+            <StyledTitle>{book.title ? book.title : "No title"}</StyledTitle>
+            <StyledSubtitle>
+              {book.subtitle ? book.subtitle : "No subtitle"}
+            </StyledSubtitle>
           </StyledLink>
           <AmountContainer>
             <Button>
@@ -61,7 +66,10 @@ export const CardItem = ({ book }: IBookCardProps) => {
             </Button>
           </AmountContainer>
         </DescriptionBlock>
-        <StyledPrice>{book.price}</StyledPrice>
+
+        <StyledPrice>
+          {book.price === "$0.00" ? "Free" : book.price}
+        </StyledPrice>
 
         <HeartContainer type="button" onClick={() => handleRemoveCard(book)}>
           <Cancel />

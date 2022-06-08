@@ -31,30 +31,20 @@ export const StyledLink = styled(Link)`
   border-radius: 12px;
   background: #f9f9fb;
   box-shadow: -17px 17px 40px #dbdbdd, 17px -17px 40px #ffffff;
-  & {
-    transition: 0.6s;
-  }
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 export const StyledImage = styled.img`
-  /* -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-  margin-bottom: 21px;
-  & {
-    transition: 0.6s;
-  }
-  &:hover {
-    transform: scale(1.1);
-  } */
   margin-bottom: 21px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 
   justify-content: center;
+  & {
+    transition: 0.6s;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 export const StyledIsbn = styled.p`
   color: ${Colors.SECONDARY};

@@ -26,13 +26,10 @@ export const StyledImageBlock = styled.div`
   box-shadow: -17px 17px 40px #caafaf, 17px -17px 40px #ffdfdf;
   position: relative;
   ${media.MD} {
-    ${media.MD} {
-      margin: 130px 0 48px;
-
-      -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-      -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-      box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
-    }
+    margin: 130px 0 48px;
+    border-radius: 12px;
+    background: #e6c7c7;
+    box-shadow: -17px 17px 40px #caafaf, 17px -17px 40px #ffdfdf;
   }
 `;
 export const StyledImage = styled.img`
@@ -42,6 +39,12 @@ export const StyledImage = styled.img`
   top: 0;
   bottom: 0;
   right: 0;
+  & {
+    transition: 0.6s;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 export const StyledBlock = styled.div`
   display: grid;

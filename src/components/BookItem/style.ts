@@ -19,12 +19,6 @@ export const StyledLink = styled(Link)`
   border-radius: 12px;
   background: #f9f9fb;
   box-shadow: -17px 17px 40px #dbdbdd, 17px -17px 40px #ffffff;
-  & {
-    transition: 0.6s;
-  }
-  &:hover {
-    transform: scale(1.1);
-  }
 `;
 
 export const StyledImage = styled.img`
@@ -34,6 +28,12 @@ export const StyledImage = styled.img`
   margin-right: auto;
 
   justify-content: center;
+  & {
+    transition: 0.6s;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 export const StyledTitle = styled.h3`
   color: ${Colors.PRIMARY};

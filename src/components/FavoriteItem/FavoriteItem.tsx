@@ -26,14 +26,18 @@ export const FavoriteItem = ({ book }: IBookItemProps) => {
   };
   return (
     <StyledContainerFavorites>
-      <StyledLink to={`${routes.FAVORITE_BOOK}/${book.isbn13}`}>
+      <StyledLink to={`/bookstore/books/${book.isbn13}`}>
         <StyledImageBlock>
           <StyledImage src={book.image} alt={book.title} />
         </StyledImageBlock>
         <StyledBlock>
-          <StyledTitle>{book.title}</StyledTitle>
-          <StyledSubtitle>{book.subtitle}</StyledSubtitle>
-          <StyledPrice>{book.price}</StyledPrice>
+          <StyledTitle>{book.title ? book.title : "No title"}</StyledTitle>
+          <StyledSubtitle>
+            {book.subtitle ? book.subtitle : "No subtitle"}
+          </StyledSubtitle>
+          <StyledPrice>
+            {book.price === "$0.00" ? "Free" : book.price}
+          </StyledPrice>
         </StyledBlock>
       </StyledLink>
       <HeartContainer type="button" onClick={() => handleRemoveFavorites(book)}>
