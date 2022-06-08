@@ -23,7 +23,6 @@ export const StyledTitle = styled.div`
   padding: 26px 0 22px 0;
   text-align: center;
   ${media.MD} {
-    font-size: 12px;
     font-weight: 700;
     line-height: 20px;
   }
