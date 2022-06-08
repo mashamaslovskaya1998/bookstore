@@ -1,5 +1,6 @@
 import React from "react";
+import { SpinnerInfinity } from "spinners-react";
 
 export const Loading = () => {
-  return <div>Loading</div>;
+  return <SpinnerInfinity />;
 };
