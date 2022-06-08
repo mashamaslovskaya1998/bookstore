@@ -121,7 +121,7 @@ export const DetailsBooks = ({ book }: IProps) => {
               </Link>
             </StyledAttributeDetails>
             <StyledButtonContainer>
-              <StyledButton onClick={handleCards}>Add to chart</StyledButton>
+              <StyledButton onClick={handleCards}>Add to cart</StyledButton>
               <HeartContainer onClick={handleFavorites}>
                 <Heart />
               </HeartContainer>
