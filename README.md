@@ -2,6 +2,10 @@
 
 [Live Demo](https://mashamaslovskaya1998.github.io/bookstore/)
 
+## **My project**
+
+<img src = 'Project.png' alt='Logo'>
+
 ## Tools and Pachages
 
 1. [React](https://ru.reactjs.org/)
